@@ -15,7 +15,11 @@ export function LegalShell({
 }
 
 export function H({ children }: { children: React.ReactNode }) {
-  return <h2 style={{ fontFamily: fonts.display, fontWeight: 600, color: paper.oceanDeep, fontSize: 21, margin: "34px 0 12px" }}>{children}</h2>;
+  return <h2 style={{ fontFamily: fonts.display, fontWeight: 600, color: paper.oceanDeep, fontSize: 21, margin: "36px 0 12px" }}>{children}</h2>;
+}
+
+export function Sub({ children }: { children: React.ReactNode }) {
+  return <h3 style={{ fontFamily: fonts.body, fontWeight: 700, color: paper.ink, fontSize: 15.5, margin: "22px 0 8px" }}>{children}</h3>;
 }
 
 export function P({ children }: { children: React.ReactNode }) {
