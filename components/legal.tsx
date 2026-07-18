@@ -26,10 +26,44 @@ export function P({ children }: { children: React.ReactNode }) {
   return <p style={{ color: paper.inkSoft, fontSize: 15.5, lineHeight: 1.75, margin: "0 0 14px" }}>{children}</p>;
 }
 
+/** Paragraph with a bold lead-in (e.g. "Right of access — you may ..."). */
+export function PB({ lead, text }: { lead: string; text: string }) {
+  return (
+    <p style={{ color: paper.inkSoft, fontSize: 15.5, lineHeight: 1.75, margin: "0 0 12px" }}>
+      <strong style={{ color: paper.ink }}>{lead}</strong> {text}
+    </p>
+  );
+}
+
 export function UL({ items }: { items: string[] }) {
   return (
     <ul style={{ color: paper.inkSoft, fontSize: 15.5, lineHeight: 1.75, margin: "0 0 14px", paddingLeft: 20 }}>
       {items.map((x, i) => <li key={i} style={{ marginBottom: 6 }}>{x}</li>)}
     </ul>
+  );
+}
+
+export function Table({ head, rows }: { head: string[]; rows: string[][] }) {
+  return (
+    <div style={{ overflowX: "auto", border: "1px solid " + paper.sandLine, borderRadius: 6, margin: "0 0 16px" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+        <thead>
+          <tr>
+            {head.map((h) => (
+              <th key={h} style={{ textAlign: "left", padding: "10px 14px", borderBottom: "1px solid " + paper.sandLine, background: paper.paperWarm, color: paper.ink, fontWeight: 600, fontFamily: fonts.mono, fontSize: 11.5, textTransform: "uppercase", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>
+              {r.map((c, j) => (
+                <td key={j} style={{ padding: "10px 14px", borderBottom: "1px solid " + paper.sandLine, color: j === 0 ? paper.ink : paper.inkSoft, fontWeight: j === 0 ? 600 : 400, verticalAlign: "top", lineHeight: 1.5 }}>{c}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
