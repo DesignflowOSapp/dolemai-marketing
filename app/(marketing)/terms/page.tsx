@@ -12,7 +12,7 @@ export default function Terms() {
   return (
     <LegalShell
       title="Terms and conditions"
-      updated="18 July 2026"
+      updated="23 July 2026"
       intro="Dolemai is a software service provided by Lapunne Limited, a company registered in England and Wales. These terms govern your use of the Dolemai platform at app.dolemai.com."
     >
       <P>{`By creating an account or using Dolemai, you agree to these terms. If you do not agree, do not use the service.`}</P>
@@ -26,7 +26,7 @@ export default function Terms() {
       <P>{`Dolemai is not a substitute for professional advice. Nothing produced by Dolemai constitutes legal, contractual, financial, structural or regulatory advice. You should not rely on Dolemai outputs without independent professional review appropriate to the circumstances.`}</P>
 
       <H>3. Your account</H>
-      <P>{`You must create an account to use Dolemai. You are responsible for keeping your login credentials secure. You must not share your account with others or allow others to access the service using your credentials.`}</P>
+      <P>{`You must create an account to use Dolemai, using email and password, Microsoft SSO or Google sign-in. You are responsible for keeping your login credentials secure. You must not share your account with others or allow others to access the service using your credentials.`}</P>
       <P>{`You must provide accurate information when creating your account. You must be at least 18 years old to use Dolemai.`}</P>
       <P>{`We may suspend or terminate your account if we reasonably believe you have breached these terms.`}</P>
 

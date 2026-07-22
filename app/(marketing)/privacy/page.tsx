@@ -12,7 +12,7 @@ export default function Privacy() {
   return (
     <LegalShell
       title="Privacy policy"
-      updated="July 2026"
+      updated="23 July 2026"
       intro="Dolemai is provided by Lapunne Limited, a company registered in England and Wales. This policy explains how we collect, use and protect your personal data when you use Dolemai at app.dolemai.com."
     >
       <P>{`Please read this policy carefully. By using Dolemai you agree to the collection and use of your data as described here.`}</P>
@@ -26,7 +26,7 @@ export default function Privacy() {
 
       <H>2. What data we collect</H>
       <Sub>Account data</Sub>
-      <P>{`When you create an account we collect your email address, your name if you provide it, and your authentication method (email and password or Microsoft SSO).`}</P>
+      <P>{`When you create an account we collect your email address, your name if you provide it, and your authentication method (email and password, Microsoft SSO or Google sign-in).`}</P>
       <Sub>Project data</Sub>
       <P>{`When you use Dolemai for a project we collect the project information you enter — project name, client name, site address, postcode, project type, stage, appointment details and baseline figures.`}</P>
       <Sub>Document intelligence</Sub>
@@ -67,7 +67,7 @@ export default function Privacy() {
       <H>5. AI processing</H>
       <P>{`Dolemai uses the Anthropic Claude API to process your project documents and generate report content. When you run an analysis or generate a report, your project documents and data are sent to Anthropic's API for processing.`}</P>
       <P>{`Anthropic does not use data submitted through their API to train AI models by default, in accordance with their commercial terms of service. You can review Anthropic's privacy and data handling policies at anthropic.com.`}</P>
-      <P>{`Dolemai also uses OpenAI's API for generating embeddings of public legislative content only. No project data or personal data is sent to OpenAI.`}</P>
+      <P>{`Dolemai also uses OpenAI's API to generate embeddings of public UK legislation content. This is used to ground report outputs in relevant regulatory context. No project data, personal data or project documents are sent to OpenAI — only queries against public legislative text.`}</P>
 
       <H>6. Data storage and security</H>
       <Sub>Where your data is stored</Sub>
@@ -92,6 +92,8 @@ export default function Privacy() {
           ["Stripe", "Payment processing", "Billing and subscription data"],
           ["Resend", "Email delivery", "Email address, email content"],
           ["Microsoft (Azure)", "Microsoft 365 integration", "OAuth tokens for folder/email access"],
+          ["Google", "Authentication (sign-in)", "Email address, name, Google account identifier"],
+          ["Google", "Cloud storage integration (Google Drive — when connected by user)", "OAuth access token for connected folders only"],
           ["Cloudflare", "Hosting and CDN", "Request logs, technical data"],
         ]}
       />
@@ -101,7 +103,15 @@ export default function Privacy() {
       <P>{`When you connect your Microsoft 365 account to Dolemai, we request permission to access specific SharePoint folders and project email. We use these permissions only to read documents and emails for project analysis as you direct. We do not access any Microsoft 365 data beyond what you explicitly connect.`}</P>
       <P>{`Your Microsoft 365 access tokens are stored securely and used only to access the folders and email accounts you have connected. You can revoke this access at any time by disconnecting your sources in Project Settings or by revoking the Dolemai application in your Microsoft 365 account settings.`}</P>
 
-      <H>9. Your rights</H>
+      <H>9. Google sign-in and Google Drive</H>
+      <Sub>Google sign-in</Sub>
+      <P>{`When you sign in with Google, we receive your email address, name and Google account identifier from Google. We use this information only to create and manage your Dolemai account.`}</P>
+      <Sub>Google Drive integration</Sub>
+      <P>{`You may optionally connect a Google Drive folder to a project for document monitoring. When you do, Dolemai requests read-only access to the specific folder you select. We use this access only to read documents for project analysis as you direct. We do not access any Google Drive content beyond the folders you explicitly connect, and we do not access Gmail, Google Calendar or any other Google service.`}</P>
+      <P>{`The documents we access are downloaded, processed in memory to extract project intelligence, and then discarded. We do not store your Google Drive documents on our servers. Only the structured intelligence extracted — risks, actions, decisions and changes — is retained.`}</P>
+      <P>{`Your Google Drive access tokens are stored securely and used only to access the folders you have connected. You can revoke Dolemai's access to your Google Drive at any time by disconnecting your sources in Project Settings or by revoking the Dolemai application in your Google account settings at myaccount.google.com/permissions.`}</P>
+
+      <H>10. Your rights</H>
       <P>{`Under UK GDPR you have the following rights:`}</P>
       <PB lead="Right of access" text="— you may request a copy of the personal data we hold about you." />
       <PB lead="Right to rectification" text="— you may ask us to correct inaccurate data we hold about you." />
@@ -113,18 +123,18 @@ export default function Privacy() {
       <P>{`To exercise any of these rights, contact us at support@designflowos.com. We will respond within one month.`}</P>
       <P>{`You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at ico.org.uk if you believe we have not handled your data correctly.`}</P>
 
-      <H>10. Cookies</H>
+      <H>11. Cookies</H>
       <P>{`Dolemai uses essential cookies to maintain your login session and provide the service. We do not use advertising cookies or tracking cookies.`}</P>
       <P>{`We may use analytics cookies to understand how the service is used. Where we do, we will ask for your consent via the cookie banner when you first visit.`}</P>
       <P>{`You can manage cookie preferences at any time via the cookie settings link in the footer.`}</P>
 
-      <H>11. Children</H>
+      <H>12. Children</H>
       <P>{`Dolemai is a professional service intended for use by adults. We do not knowingly collect data from anyone under the age of 18. If you believe a child has provided us with personal data, contact us at support@designflowos.com and we will delete it.`}</P>
 
-      <H>12. Changes to this policy</H>
+      <H>13. Changes to this policy</H>
       <P>{`We may update this policy from time to time. We will notify you of material changes by email. The current version is always available at dolemai.com/privacy.`}</P>
 
-      <H>13. Contact</H>
+      <H>14. Contact</H>
       <P>{`If you have any questions about this policy or how we handle your data:`}</P>
       <P>{`Lapunne Limited`}</P>
       <P>{`support@designflowos.com`}</P>
