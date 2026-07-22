@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Dolemai — Project intelligence and reporting for construction consultants",
   description:
-    "Dolemai turns the documents and emails already used on your projects into a clear, current view of cost, programme, risk, change and decisions — then prepares professional reports.",
+    "Dolemai is a project intelligence and reporting tool for construction consultants. It reviews the project documents and emails you connect, tracks changes to cost, programme, risk, contract change and decisions, and prepares client and internal report drafts for your professional review.",
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.svg" },
 };

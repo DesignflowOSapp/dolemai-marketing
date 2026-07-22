@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "Home",
   description:
-    "Dolemai turns the documents and emails already used on your projects into a clear, current view of cost, programme, risk, change and decisions — then prepares professional reports for your clients, team and project board.",
+    "Dolemai is a project intelligence and reporting tool for construction consultants. It reviews the project documents and emails you connect, tracks changes to cost, programme, risk, contract change and decisions, and prepares client and internal report drafts for your professional review.",
   path: "/",
 });
 
@@ -72,8 +72,8 @@ export default function Home() {
               <span style={{ width: 22, height: 1, background: paper.signal, display: "inline-block" }} />
               Project intelligence and reporting for construction consultants
             </div>
-            <h1 className="display" style={{ fontWeight: 600, color: paper.oceanDeep, letterSpacing: "-0.02em", lineHeight: 1.08, maxWidth: "14ch", margin: 0 }}>
-              Know where every project stands.
+            <h1 className="display" style={{ fontWeight: 600, color: paper.oceanDeep, letterSpacing: "-0.02em", lineHeight: 1.08, maxWidth: "20ch", margin: 0 }}>
+              Dolemai — Know where every project stands.
             </h1>
             <p style={{ color: paper.inkSoft, fontSize: 18, lineHeight: 1.65, maxWidth: 620, marginTop: 26 }}>
               Dolemai turns the documents and emails already used on your projects into a clear,
