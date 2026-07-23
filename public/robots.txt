@@ -1,0 +1,5 @@
+# Dolemai — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://dolemai.com/sitemap.xml
