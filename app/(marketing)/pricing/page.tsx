@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Section, H2, Card } from "@/components/ui";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
@@ -9,106 +8,191 @@ import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "Pricing",
   description:
-    "Simple pricing, per active project. £5 per active project per month — project monitoring, register maintenance, up to 7 reporting cycles, and client and internal report drafts. Start free.",
+    "Simple, per-project pricing for Dolemai. Start free for 30 days. Essential £5/month or Professional £15.99/month per project, with pay-as-you-go add-on credit packs.",
   path: "/pricing",
 });
 
-const paidFeatures = [
-  "Project monitoring and analysis",
-  "Automated register maintenance",
-  "Up to 7 reporting cycles per month",
-  "Client-facing and internal report drafts per cycle",
-  "Scheduled weekly and monthly reports",
-  "Cancel at any time",
+const trial = [
+  "30 days",
+  "1 report generation (client-facing + internal)",
+  "1 manual refresh",
+  "2 Ask Dolemai queries",
+  "No credit card required",
+];
+const essential = [
+  "7 report generations per month (each produces a client-facing and internal draft)",
+  "10 manual refreshes per month",
+  "1 Ask Dolemai query per month",
+  "Add-on credit packs available",
+];
+const professional = [
+  "10 report generations per month (each produces a client-facing and internal draft)",
+  "20 manual refreshes per month",
+  "15 Ask Dolemai queries per month",
+  "Add-on credit packs available",
+];
+const addon = [
+  "+1 report generation",
+  "+2 manual refreshes",
+  "+5 Ask Dolemai queries",
 ];
 
 const faqs = [
-  { q: "What counts as an active project?", a: "An active project is one you are monitoring and reporting on with a live subscription. You pay £5 per month for each active project. Projects you have closed or archived are not counted as active." },
-  { q: "What happens if I close a project?", a: "When you close a project in Dolemai, your subscription is cancelled automatically at the end of the current billing period — you keep access until then. Any unused monthly report generations can be transferred to another active project, and unused add-on credits are refunded to your original payment method within 5–10 business days. If you have no other active project to receive transferred generations, they expire at the end of the billing period." },
-  { q: "Can I transfer unused generations to another project?", a: "Unused monthly report generations can be transferred to another active project when you close a project. During normal operation, each active project has its own monthly allowance of up to 7 cycles." },
-  { q: "What happens if a generation fails?", a: "A failed generation does not count against your monthly reporting cycles, and no add-on credit is used. You can simply generate again once the issue is resolved." },
-  { q: "Can I add extra report generations?", a: "Yes. If you reach the monthly cap on a project, you can buy an add-on credit pack (£5 for 5 extra generations) to continue reporting on that project for the rest of the month." },
-  { q: "Is there a per-user or per-seat charge?", a: "No. Pricing is per active project only. There is no per-user or per-seat charge." },
-  { q: "How do I cancel?", a: "You can cancel a project's subscription at any time from its billing settings. Cancellation stops future monthly charges. The monthly fee already paid is not refunded for the current period." },
+  { q: "Can I have projects on different tiers?", a: "Yes — each project has its own subscription. You can have some projects on Essential and others on Professional." },
+  { q: "What happens when I run out of credits?", a: "You can purchase add-on credit packs at any time from Project Settings → Billing. One pack adds 1 report generation, 2 refreshes and 5 Ask Dolemai queries for £5." },
+  { q: "Can I cancel at any time?", a: "Yes. Cancel from Project Settings → Billing. Your subscription ends at the close of the current billing period and you retain access until then. Unused add-on credits are refunded." },
+  { q: "Is there a discount for annual billing?", a: "Not currently. Annual billing is on our roadmap." },
 ];
+
+function Check({ children }: { children: React.ReactNode }) {
+  return (
+    <li style={{ display: "flex", gap: 10, color: colors.ink2, fontSize: 15, lineHeight: 1.5 }}>
+      <span style={{ color: colors.green, flex: "0 0 auto", fontWeight: 700 }}>✓</span>
+      <span>{children}</span>
+    </li>
+  );
+}
 
 export default function Pricing() {
   return (
     <>
+      {/* Hero */}
       <section style={{ padding: "72px 0 8px", textAlign: "center" }}>
         <Container>
-          <Reveal>
-            <h1 style={{ color: colors.text, margin: 0, letterSpacing: "-0.03em" }}>Simple pricing. Per active project.</h1>
-          </Reveal>
+          <h1 style={{ margin: 0 }}>Pricing</h1>
+          <p className="section-lead" style={{ margin: "18px auto 0", maxWidth: 560 }}>
+            Simple, per-project pricing. Start free, no credit card required.
+          </p>
         </Container>
       </section>
 
-      <Section style={{ paddingTop: 40 }}>
-        <div className="dm-grid-2" style={{ maxWidth: 860, margin: "0 auto", alignItems: "stretch" }}>
+      {/* Free trial */}
+      <Section style={{ paddingTop: 44, paddingBottom: 20 }}>
+        <Reveal>
+          <Card style={{ maxWidth: 720, margin: "0 auto" }}>
+            <div className="section-kicker" style={{ marginBottom: 8 }}>Always free to start</div>
+            <h2 style={{ fontSize: 28, margin: "0 0 6px" }}>Free trial</h2>
+            <ul style={{ listStyle: "none", margin: "18px 0 0", padding: 0, display: "grid", gap: 12 }}>
+              {trial.map((t) => <Check key={t}>{t}</Check>)}
+            </ul>
+            <div style={{ marginTop: 24 }}>
+              <a href={APP_URL + "/signup"} style={{ ...btnPrimary, minHeight: 50 }}>Start your first project →</a>
+            </div>
+          </Card>
+        </Reveal>
+      </Section>
+
+      {/* Two tiers */}
+      <Section style={{ paddingTop: 20 }}>
+        <div className="dm-split" style={{ maxWidth: 900, margin: "0 auto", alignItems: "stretch" }}>
           <Reveal>
             <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-              <div style={{ color: colors.muted, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em" }}>FREE TRIAL</div>
-              <h2 style={{ color: colors.text, fontSize: 26, margin: "10px 0 6px" }}>Start free</h2>
-              <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.6, margin: "8px 0 0" }}>
-                Includes one project, one analysis and one client-facing and internal reporting
-                cycle. No credit card required.
+              <div className="section-kicker" style={{ marginBottom: 8 }}>Essential</div>
+              <h2 style={{ fontSize: 30, margin: "0 0 2px" }}>
+                £5<span style={{ fontSize: 15, color: colors.muted, fontWeight: 400, fontFamily: "Inter, sans-serif", letterSpacing: 0 }}> / month per project</span>
+              </h2>
+              <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.6, margin: "10px 0 0" }}>
+                Everything you need to monitor a project and generate reports.
               </p>
+              <ul style={{ listStyle: "none", margin: "20px 0 0", padding: 0, display: "grid", gap: 12 }}>
+                {essential.map((f) => <Check key={f}>{f}</Check>)}
+              </ul>
               <div style={{ flex: 1 }} />
               <div style={{ marginTop: 24 }}>
-                <a href={APP_URL + "/signup"} style={{ ...btnOutline, display: "block", textAlign: "center", padding: "13px 20px" }}>
-                  Start your first project →
-                </a>
+                <a href={APP_URL + "/signup"} style={{ ...btnOutline, display: "flex", width: "100%" }}>Start your first project →</a>
               </div>
             </Card>
           </Reveal>
 
           <Reveal delay={100}>
-            <Card style={{ height: "100%", display: "flex", flexDirection: "column", borderColor: colors.accent, boxShadow: "0 0 0 1px " + colors.accent }}>
-              <div style={{ color: colors.accent, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em" }}>SUBSCRIPTION</div>
-              <h2 style={{ color: colors.text, fontSize: 26, margin: "10px 0 2px" }}>
-                £5<span style={{ fontSize: 15, color: colors.muted, fontWeight: 500 }}> per active project, per month</span>
+            <Card style={{ height: "100%", display: "flex", flexDirection: "column", position: "relative", borderColor: colors.sky, boxShadow: "0 0 0 2px " + colors.sky }}>
+              <span style={{ position: "absolute", top: -13, left: 26, background: colors.ink, color: "#fff", fontSize: 12, fontWeight: 700, letterSpacing: "0.03em", borderRadius: 999, padding: "5px 14px" }}>
+                Recommended
+              </span>
+              <div className="section-kicker" style={{ marginBottom: 8 }}>Professional</div>
+              <h2 style={{ fontSize: 30, margin: "0 0 2px" }}>
+                £15.99<span style={{ fontSize: 15, color: colors.muted, fontWeight: 400, fontFamily: "Inter, sans-serif", letterSpacing: 0 }}> / month per project</span>
               </h2>
-              <ul style={{ listStyle: "none", margin: "20px 0 0", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                {paidFeatures.map((f) => (
-                  <li key={f} style={{ display: "flex", gap: 10, color: colors.text, fontSize: 15, lineHeight: 1.5 }}>
-                    <span style={{ color: colors.green, flex: "0 0 auto" }}>✓</span>{f}
-                  </li>
-                ))}
+              <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.6, margin: "10px 0 0" }}>
+                Full access including Ask Dolemai.
+              </p>
+              <ul style={{ listStyle: "none", margin: "20px 0 0", padding: 0, display: "grid", gap: 12 }}>
+                {professional.map((f) => <Check key={f}>{f}</Check>)}
               </ul>
               <div style={{ flex: 1 }} />
               <div style={{ marginTop: 24 }}>
-                <a href={APP_URL + "/signup"} style={{ ...btnPrimary, display: "block", textAlign: "center", padding: "13px 20px" }}>
-                  Start your first project →
-                </a>
-                <p style={{ color: colors.muted, fontSize: 12, textAlign: "center", marginTop: 12 }}>Early access pricing.</p>
+                <a href={APP_URL + "/signup"} style={{ ...btnPrimary, display: "flex", width: "100%" }}>Start your first project →</a>
               </div>
             </Card>
           </Reveal>
         </div>
-
-        <p style={{ color: colors.muted, fontSize: 13, textAlign: "center", maxWidth: 680, margin: "24px auto 0", lineHeight: 1.6 }}>
-          Each reporting cycle produces a client-facing and an internal draft, counted as one cycle.
-          VAT may apply.
-        </p>
       </Section>
 
+      {/* Add-on credit pack */}
+      <Section bg={colors.cardAlt} style={{ borderTop: "1px solid " + colors.border, borderBottom: "1px solid " + colors.border }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <Reveal>
+            <Card>
+              <div className="section-kicker" style={{ marginBottom: 8 }}>Add-on credit pack — £5</div>
+              <h2 style={{ fontSize: 26, margin: "0 0 6px" }}>Top up any time</h2>
+              <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.6, margin: "6px 0 0" }}>
+                Works on both tiers. Credits never expire.
+              </p>
+              <ul style={{ listStyle: "none", margin: "18px 0 0", padding: 0, display: "grid", gap: 12 }}>
+                {addon.map((a) => <Check key={a}>{a}</Check>)}
+              </ul>
+              <p style={{ color: colors.muted, fontSize: 14, marginTop: 18 }}>
+                Add credits any time from Project Settings → Billing.
+              </p>
+            </Card>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* How credits work */}
+      <Section>
+        <div style={{ maxWidth: 780, margin: "0 auto" }}>
+          <div style={{ marginBottom: 24 }}>
+            <div className="section-kicker">How credits work</div>
+            <H2 style={{ fontSize: "clamp(1.9rem,3.6vw,2.6rem)" }}>Three simple counters per project</H2>
+          </div>
+          <div style={{ display: "grid", gap: 16 }}>
+            <p style={{ color: colors.muted, fontSize: 16, lineHeight: 1.7, margin: 0 }}>
+              <strong style={{ color: colors.ink }}>Reports</strong> — used when you generate a report.
+              Each generation produces one client-facing and one internal draft, counted as one.
+            </p>
+            <p style={{ color: colors.muted, fontSize: 16, lineHeight: 1.7, margin: 0 }}>
+              {`Refreshes — used when you manually refresh a project's position. Refreshes triggered automatically by report generation or Ask Dolemai do not count against your allowance.`}
+            </p>
+            <p style={{ color: colors.muted, fontSize: 16, lineHeight: 1.7, margin: 0 }}>
+              <strong style={{ color: colors.ink }}>Ask Dolemai</strong> — used when you ask a question
+              about your project. Each query and its follow-ups count as one.
+            </p>
+          </div>
+          <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.7, marginTop: 22, paddingTop: 18, borderTop: "1px solid " + colors.border }}>
+            Credits reset on your monthly billing date. Add-on credits never expire and are used after
+            your monthly allowance is exhausted.
+          </p>
+        </div>
+      </Section>
+
+      {/* FAQ */}
       <Section bg={colors.cardAlt} style={{ borderTop: "1px solid " + colors.border, borderBottom: "1px solid " + colors.border }}>
         <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <H2 style={{ fontSize: "clamp(24px,3.2vw,32px)" }}>Pricing questions</H2>
+          <H2 style={{ fontSize: "clamp(1.9rem,3.6vw,2.6rem)" }}>Pricing questions</H2>
         </div>
         <FAQ items={faqs} />
       </Section>
 
-      <section style={{ padding: "72px 0", textAlign: "center" }}>
+      {/* Final CTA */}
+      <section style={{ padding: "84px 0", textAlign: "center" }}>
         <Container>
-          <h2 style={{ color: colors.text, fontSize: "clamp(24px,3.2vw,34px)", margin: 0 }}>Try it on a real project.</h2>
-          <p style={{ color: colors.muted, fontSize: 16, margin: "16px auto 24px", maxWidth: 560 }}>
-            Your first analysis and report drafts are free. No credit card required.
-          </p>
-          <a href={APP_URL + "/signup"} style={{ ...btnPrimary, padding: "13px 24px", fontSize: 15 }}>Start your first project →</a>
-          <p style={{ color: colors.muted, fontSize: 14, marginTop: 16 }}>
-            Prefer to look first? <Link href="/demo" style={{ color: colors.accent }}>Explore the demo</Link>.
-          </p>
+          <h2 style={{ margin: "0 auto", maxWidth: "22ch", fontSize: "clamp(2rem,4vw,3rem)" }}>
+            Start your first project free — no credit card required.
+          </h2>
+          <div style={{ marginTop: 28 }}>
+            <a href={APP_URL + "/signup"} style={{ ...btnPrimary, fontSize: 15 }}>Get started →</a>
+          </div>
         </Container>
       </section>
     </>
