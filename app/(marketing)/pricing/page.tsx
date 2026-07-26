@@ -154,7 +154,7 @@ export default function Pricing() {
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <div style={{ marginBottom: 24 }}>
             <div className="section-kicker">How credits work</div>
-            <H2 style={{ fontSize: "clamp(1.9rem,3.6vw,2.6rem)" }}>Three simple counters per project</H2>
+            <H2 style={{ fontSize: "clamp(1.6rem,2.5vw,2.2rem)" }}>Three simple counters per project</H2>
           </div>
           <div style={{ display: "grid", gap: 16 }}>
             <p style={{ color: colors.muted, fontSize: 16, lineHeight: 1.7, margin: 0 }}>
@@ -179,7 +179,7 @@ export default function Pricing() {
       {/* FAQ */}
       <Section bg={colors.cardAlt} style={{ borderTop: "1px solid " + colors.border, borderBottom: "1px solid " + colors.border }}>
         <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <H2 style={{ fontSize: "clamp(1.9rem,3.6vw,2.6rem)" }}>Pricing questions</H2>
+          <H2 style={{ fontSize: "clamp(1.6rem,2.5vw,2.2rem)" }}>Pricing questions</H2>
         </div>
         <FAQ items={faqs} />
       </Section>
@@ -187,7 +187,7 @@ export default function Pricing() {
       {/* Final CTA */}
       <section style={{ padding: "84px 0", textAlign: "center" }}>
         <Container>
-          <h2 style={{ margin: "0 auto", maxWidth: "22ch", fontSize: "clamp(2rem,4vw,3rem)" }}>
+          <h2 style={{ margin: "0 auto", maxWidth: "22ch", fontSize: "clamp(1.6rem,2.5vw,2.2rem)" }}>
             Start your first project free — no credit card required.
           </h2>
           <div style={{ marginTop: 28 }}>
