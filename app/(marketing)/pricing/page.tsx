@@ -76,7 +76,7 @@ export default function Pricing() {
               {trial.map((t) => <Check key={t}>{t}</Check>)}
             </ul>
             <div style={{ marginTop: 24 }}>
-              <a href={APP_URL + "/signup"} style={{ ...btnPrimary, minHeight: 50 }}>Start your first project →</a>
+              <a href={APP_URL + "/projects/new"} style={{ ...btnPrimary, minHeight: 50 }}>Start your first project →</a>
             </div>
           </Card>
         </Reveal>
@@ -99,7 +99,7 @@ export default function Pricing() {
               </ul>
               <div style={{ flex: 1 }} />
               <div style={{ marginTop: 24 }}>
-                <a href={APP_URL + "/signup"} style={{ ...btnOutline, display: "flex", width: "100%" }}>Start your first project →</a>
+                <a href={APP_URL + "/projects/new"} style={{ ...btnOutline, display: "flex", width: "100%" }}>Start your first project →</a>
               </div>
             </Card>
           </Reveal>
@@ -121,7 +121,7 @@ export default function Pricing() {
               </ul>
               <div style={{ flex: 1 }} />
               <div style={{ marginTop: 24 }}>
-                <a href={APP_URL + "/signup"} style={{ ...btnPrimary, display: "flex", width: "100%" }}>Start your first project →</a>
+                <a href={APP_URL + "/projects/new"} style={{ ...btnPrimary, display: "flex", width: "100%" }}>Start your first project →</a>
               </div>
             </Card>
           </Reveal>
@@ -191,7 +191,7 @@ export default function Pricing() {
             Start your first project free — no credit card required.
           </h2>
           <div style={{ marginTop: 28 }}>
-            <a href={APP_URL + "/signup"} style={{ ...btnPrimary, fontSize: 15 }}>Get started →</a>
+            <a href={APP_URL + "/projects/new"} style={{ ...btnPrimary, fontSize: 15 }}>Get started →</a>
           </div>
         </Container>
       </section>

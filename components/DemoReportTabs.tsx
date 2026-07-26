@@ -67,7 +67,7 @@ export default function DemoReportTabs() {
             ))}
           </ul>
           <a
-            href={APP_URL + "/signup"}
+            href={APP_URL + "/projects/new"}
             style={{ display: "inline-block", marginTop: 24, background: colors.accent, color: "#0A1620", fontSize: 14, fontWeight: 600, borderRadius: 6, padding: "12px 20px", textDecoration: "none" }}
           >
             Sign up to see the full internal report →

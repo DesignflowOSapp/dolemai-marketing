@@ -121,7 +121,7 @@ export default function HowItWorks() {
         <Container>
           <h2 style={{ color: colors.text, fontSize: "clamp(24px,3.2vw,34px)", margin: 0 }}>Know where every project stands.</h2>
           <div style={{ marginTop: 24 }}>
-            <a href={APP_URL + "/signup"} style={{ ...btnPrimary, padding: "13px 24px", fontSize: 15 }}>Start your first project →</a>
+            <a href={APP_URL + "/projects/new"} style={{ ...btnPrimary, padding: "13px 24px", fontSize: 15 }}>Start your first project →</a>
           </div>
           <p style={{ color: colors.muted, fontSize: 14, marginTop: 16 }}>
             Or <Link href="/demo" style={{ color: colors.accent }}>explore the interactive demo</Link> — no sign-up required.

@@ -8,7 +8,7 @@ export function DemoBanner() {
     <div className="demo-banner">
       <div className="demo-banner-inner">
         <span><b>You are viewing a demo project.</b> No real data here.</span>
-        <a href={APP_URL + "/signup"}>Start your own project →</a>
+        <a href={APP_URL + "/projects/new"}>Start your own project →</a>
       </div>
     </div>
   );

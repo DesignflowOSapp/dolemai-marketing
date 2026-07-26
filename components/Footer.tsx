@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/how-it-works">How it works</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/demo/overview">Try demo</Link>
-            <a href={APP_URL + "/signup"}>Start your first project</a>
+            <a href={APP_URL + "/projects/new"}>Start your first project</a>
           </div>
 
           <div className="footer-col">

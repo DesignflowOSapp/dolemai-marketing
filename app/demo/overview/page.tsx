@@ -138,7 +138,7 @@ export default function DemoOverview() {
         <p style={{ color: colors.muted, fontSize: 15, margin: "12px auto 20px", maxWidth: 520, lineHeight: 1.6 }}>
           Setting up Riverside Works took 3 minutes. Your first analysis and report drafts are free.
         </p>
-        <a href={APP_URL + "/signup"} style={{ display: "inline-block", background: colors.accent, color: "#0A1620", fontSize: 15, fontWeight: 600, borderRadius: 6, padding: "13px 24px", textDecoration: "none" }}>
+        <a href={APP_URL + "/projects/new"} style={{ display: "inline-block", background: colors.accent, color: "#0A1620", fontSize: 15, fontWeight: 600, borderRadius: 6, padding: "13px 24px", textDecoration: "none" }}>
           Start your first project →
         </a>
       </div>

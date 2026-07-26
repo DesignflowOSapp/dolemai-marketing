@@ -37,7 +37,7 @@ export default function Home() {
               attention and what your client needs to hear.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={APP_URL + "/signup"}>Start monitoring your first project</a>
+              <a className="btn btn-primary" href={APP_URL + "/projects/new"}>Start monitoring your first project</a>
               <a className="btn btn-secondary" href="#how-it-works">See Dolemai in action</a>
             </div>
             <p className="trust-line">
@@ -424,7 +424,7 @@ export default function Home() {
                 change across one or multiple live projects. Spend less time reconstructing what
                 happened and more time acting on it.
               </p>
-              <a className="btn btn-light" href={APP_URL + "/signup"}>Start your first project</a>
+              <a className="btn btn-light" href={APP_URL + "/projects/new"}>Start your first project</a>
             </article>
             <div className="persona-side">
               <article>
@@ -479,7 +479,7 @@ export default function Home() {
             <h2>Stop rebuilding the project story every week.</h2>
             <p>Connect your first project and create a current, reviewable project position from the information your team already uses.</p>
           </div>
-          <a className="btn btn-light" href={APP_URL + "/signup"}>Start your first project</a>
+          <a className="btn btn-light" href={APP_URL + "/projects/new"}>Start your first project</a>
         </div>
       </section>
 
@@ -489,7 +489,7 @@ export default function Home() {
           <h2>Already know you want it?</h2>
           <p className="section-lead">Connect your first project in under three minutes. No credit card required for your first report.</p>
           <div className="cta2-actions">
-            <a className="btn btn-primary" href={APP_URL + "/signup"}>Start your first project →</a>
+            <a className="btn btn-primary" href={APP_URL + "/projects/new"}>Start your first project →</a>
             <Link className="cta2-link" href="/demo/overview">Try the demo first →</Link>
           </div>
         </div>

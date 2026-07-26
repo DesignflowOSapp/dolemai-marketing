@@ -22,6 +22,7 @@ export default function Privacy() {
       <PB lead="Trading as:" text="Dolemai" />
       <PB lead="Contact:" text="support@designflowos.com" />
       <PB lead="Website:" text="dolemai.com" />
+      <P>{`Lapunne Limited is registered with the Information Commissioner's Office (ICO). Registration reference: ZB111903.`}</P>
       <P>{`If you have any questions about how we handle your data, contact us at the address above.`}</P>
 
       <H>2. What data we collect</H>

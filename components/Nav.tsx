@@ -11,7 +11,7 @@ export default function Nav() {
       <Link href="/how-it-works" onClick={() => setOpen(false)}>How it works</Link>
       <Link href="/demo/overview" onClick={() => setOpen(false)}>Try demo</Link>
       <a href={APP_URL + "/login"}>Sign in</a>
-      <a className="nav-cta" href={APP_URL + "/signup"}>Start your first project</a>
+      <a className="nav-cta" href={APP_URL + "/projects/new"}>Start your first project</a>
     </>
   );
   return (

@@ -52,7 +52,7 @@ export default function DemoReports() {
       </section>
 
       <div style={{ marginTop: 40, textAlign: "center" }}>
-        <a href={APP_URL + "/signup"} style={{ display: "inline-block", background: colors.accent, color: "#0A1620", fontSize: 15, fontWeight: 600, borderRadius: 6, padding: "13px 24px", textDecoration: "none" }}>
+        <a href={APP_URL + "/projects/new"} style={{ display: "inline-block", background: colors.accent, color: "#0A1620", fontSize: 15, fontWeight: 600, borderRadius: 6, padding: "13px 24px", textDecoration: "none" }}>
           Generate reports on your own project →
         </a>
         <p style={{ color: colors.muted, fontSize: 13, marginTop: 12 }}>
