@@ -1,18 +1,17 @@
-import { DemoBanner, DemoNav } from "@/components/DemoChrome";
-import { colors } from "@/lib/theme";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import { DemoBanner, DemoTabs } from "@/components/DemoChrome";
 
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <Nav />
       <DemoBanner />
-      <div className="dm-demo-shell" style={{ minHeight: "100vh" }}>
-        <DemoNav />
-        <div style={{ background: colors.bg }}>
-          <div style={{ maxWidth: 1000, margin: "0 auto", padding: "24px 24px 64px", width: "100%", boxSizing: "border-box" }}>
-            {children}
-          </div>
-        </div>
+      <div className="container" style={{ padding: "26px 0 72px" }}>
+        <DemoTabs />
+        <div className="demo-frame">{children}</div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -11,7 +11,7 @@ export function pageMeta(args: {
 }): Metadata {
   const fullTitle =
     args.path === "" || args.path === "/"
-      ? "Dolemai — Project intelligence and reporting for construction consultants"
+      ? args.title
       : args.title + " | Dolemai";
   const url = SITE_URL + (args.path === "/" ? "" : args.path) + "/";
   return {

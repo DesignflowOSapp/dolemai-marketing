@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { paper } from "@/lib/theme";
 
 const KEY = "dolemai_cookie_consent";
 
@@ -16,23 +15,14 @@ export default function CookieBanner() {
   }
   if (!show) return null;
   return (
-    <div
-      role="dialog"
-      aria-label="Cookie consent"
-      style={{
-        position: "fixed", left: 16, right: 16, bottom: 16, zIndex: 100,
-        maxWidth: 620, margin: "0 auto",
-        background: paper.white, border: "1px solid " + paper.sandLine, borderRadius: 8,
-        padding: 18, boxShadow: "0 20px 50px -20px rgba(15,42,63,0.4)",
-      }}
-    >
-      <p style={{ color: paper.ink, fontSize: 14, lineHeight: 1.55, margin: "0 0 14px" }}>
+    <div className="cookie" role="dialog" aria-label="Cookie consent">
+      <p>
         Dolemai uses essential cookies to run this site and keep you signed in. We do not use
-        advertising cookies. See our <Link href="/cookies" style={{ color: paper.signalDeep }}>cookie policy</Link>.
+        advertising cookies. See our <Link href="/cookies" style={{ color: "#4d8cba", fontWeight: 700 }}>cookie policy</Link>.
       </p>
-      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-        <button onClick={() => decide("accepted")} style={{ background: paper.oceanDeep, color: paper.paper, border: "none", fontWeight: 600, fontSize: 14, borderRadius: 4, padding: "11px 20px", cursor: "pointer" }}>Accept</button>
-        <button onClick={() => decide("essential")} style={{ background: "transparent", color: paper.oceanDeep, border: "1px solid " + paper.sand, fontWeight: 600, fontSize: 14, borderRadius: 4, padding: "11px 20px", cursor: "pointer" }}>Essential only</button>
+      <div className="cookie-actions">
+        <button onClick={() => decide("accepted")} className="btn btn-primary" style={{ minHeight: 44, padding: "0 20px" }}>Accept</button>
+        <button onClick={() => decide("essential")} className="btn btn-secondary" style={{ minHeight: 44, padding: "0 20px" }}>Essential only</button>
       </div>
     </div>
   );

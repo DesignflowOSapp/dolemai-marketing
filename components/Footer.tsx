@@ -1,53 +1,56 @@
 import Link from "next/link";
-import Container from "@/components/Container";
 import Wordmark from "@/components/Wordmark";
-import { paper, fonts, APP_URL } from "@/lib/theme";
-
-const col: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 10 };
-const head: React.CSSProperties = { color: paper.ink, fontSize: 13, fontWeight: 600, marginBottom: 2, fontFamily: fonts.mono, textTransform: "uppercase", letterSpacing: "0.05em" };
-const fl: React.CSSProperties = { color: paper.inkSoft, textDecoration: "none", fontSize: 14 };
+import { APP_URL } from "@/lib/theme";
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid " + paper.sandLine, background: paper.paper, marginTop: 8 }}>
-      <Container style={{ padding: "56px 32px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40 }}>
-          <div style={{ ...col, maxWidth: 280 }}>
+    <footer>
+      <div className="container">
+        <div className="footer-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(165px, 1fr))" }}>
+          <div className="footer-brand">
             <Wordmark />
-            <p style={{ color: paper.inkSoft, fontSize: 14, lineHeight: 1.5, margin: 0 }}>
-              Project intelligence and reporting for construction consultants.
+            <p style={{ marginTop: 12 }}>
+              Continuous project intelligence and reporting for construction consultants.
             </p>
           </div>
 
-          <div style={col}>
-            <span style={head}>Product</span>
-            <Link href="/how-it-works" style={fl}>How it works</Link>
-            <Link href="/pricing" style={fl}>Pricing</Link>
-            <Link href="/demo" style={fl}>Try demo</Link>
-            <a href={APP_URL + "/signup"} style={fl}>Start free</a>
+          <div className="footer-col">
+            <h4>Product</h4>
+            <Link href="/how-it-works">How it works</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/demo/overview">Try demo</Link>
+            <a href={APP_URL + "/signup"}>Start your first project</a>
           </div>
 
-          <div style={col}>
-            <span style={head}>Legal</span>
-            <Link href="/privacy" style={fl}>Privacy policy</Link>
-            <Link href="/terms" style={fl}>Terms and conditions</Link>
-            <Link href="/cookies" style={fl}>Cookie policy</Link>
-            <Link href="/security" style={fl}>Security</Link>
+          <div className="footer-col">
+            <h4>Legal</h4>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/cookies">Cookies</Link>
+            <Link href="/security">Security</Link>
           </div>
 
-          <div style={col}>
-            <span style={head}>DesignFlowOS suite</span>
-            <a href="https://designflowos.com" style={fl}>Counsel</a>
-            <a href="https://designflowos.com" style={fl}>Studio OS</a>
-            <a href="https://designflowos.com" style={fl}>Snagflow</a>
-            <a href="mailto:support@designflowos.com" style={fl}>support@designflowos.com</a>
+          <div className="footer-col">
+            <h4>Support</h4>
+            <Link href="/support">Support</Link>
+            <Link href="/support">FAQ</Link>
+            <a href="mailto:support@designflowos.com">Contact</a>
+          </div>
+
+          <div className="footer-col">
+            <h4>Part of the DesignFlowOS suite</h4>
+            <a href="https://designflowos.com">DesignFlowOS</a>
+            <a href="https://counsel.designflowos.com">Counsel</a>
+            <a href="https://studio.designflowos.com">Studio OS</a>
+            <a href="https://snagflow.designflowos.com">Snagflow</a>
+            <a href="https://dfai.designflowos.com">DesignFlow AI</a>
           </div>
         </div>
 
-        <div style={{ marginTop: 48, paddingTop: 24, borderTop: "1px solid " + paper.sandLine, color: paper.inkSoft, fontSize: 13 }}>
+        <div className="copyright">
           © 2026 Lapunne Limited. Dolemai is part of the DesignFlowOS suite.
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

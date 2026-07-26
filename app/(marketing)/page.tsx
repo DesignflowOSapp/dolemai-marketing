@@ -1,230 +1,498 @@
 import Link from "next/link";
-import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
-import MacFrame from "@/components/MacFrame";
-import { MockOverview, MockRegisters } from "@/components/AppMocks";
-import HorizontalSlides from "@/components/HorizontalSlides";
-import { Section, H2, Lead, Card } from "@/components/ui";
-import { paper, fonts, btnPrimary, APP_URL } from "@/lib/theme";
+import { APP_URL } from "@/lib/theme";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Home",
+  title: "Dolemai — Know what changed before anyone asks",
   description:
-    "Dolemai is a project intelligence and reporting tool for construction consultants. It reviews the project documents and emails you connect, tracks changes to cost, programme, risk, contract change and decisions, and prepares client and internal report drafts for your professional review.",
+    "Dolemai continuously monitors your project documents, emails and updates so construction consultants always know what changed, what needs attention and what their client needs to hear.",
   path: "/",
 });
 
-const trust = [
-  "Built for UK construction",
-  "Two report versions",
-  "Professional review retained",
-  "Privacy-led processing",
-  "Designed for UK consultancies",
+const engineSteps: { t: string; accent?: boolean }[] = [
+  { t: "Email arrives in project inbox" },
+  { t: "Meeting minutes uploaded to SharePoint" },
+  { t: "Programme revised by contractor" },
+  { t: "QS uploads updated valuation" },
+  { t: "Dolemai reviews everything", accent: true },
+  { t: "Risk register updates" },
+  { t: "Project position refreshes", accent: true },
+  { t: "Weekly briefing updates automatically" },
+  { t: "Monthly report reflects latest position" },
 ];
-
-const features = [
-  { t: "Current project position", b: "Know where the project stands before opening another document. See the latest cost position, programme movement, risks, decisions and outstanding information in one place." },
-  { t: "Registers that stay useful", b: "Dolemai identifies potential risks, actions, decisions, information gaps and contract changes from connected documents and emails. You review each entry before confirmation." },
-  { t: "Two report versions", b: "Prepare client-facing and internal report drafts from the same reviewed project information, reducing duplicated work and inconsistent reporting." },
-  { t: "Professional review throughout", b: "Dolemai prepares and proposes. You review, amend, approve and issue. Professional responsibility stays where it belongs — with you." },
-];
-
-const clientReport = [
-  "Overall project position", "Executive summary", "Cost and programme headlines",
-  "Principal risks", "Decisions required", "Look-ahead and consultant recommendation",
-];
-const internalReport = [
-  "Full risks, actions and decisions", "Potential and confirmed contract changes",
-  "Consultant coordination matters", "Cost and programme commentary",
-  "Contract-administration items", "Blockers and team actions",
-];
-
-const whom = [
-  { t: "Project Managers and Employer's Agents", b: "Maintain a current view of cost, programme, risk, change and decisions — and turn that information into clear client and project-board reporting." },
-  { t: "Architects as Lead Consultant or Contract Administrator", b: "Reduce the time spent reviewing scattered project information while retaining control of professional judgement, contract administration and client communication." },
-  { t: "Independent consultants and small practices", b: "Gain structured project controls and professional reporting support without needing a large project-support team." },
-];
-
-function MiniList({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <div style={{ fontFamily: fonts.mono, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", color: paper.signalDeep, marginBottom: 10 }}>{title}</div>
-      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 7 }}>
-        {items.map((x) => (
-          <li key={x} style={{ display: "flex", gap: 9, color: paper.ink, fontSize: 13.5, lineHeight: 1.5 }}>
-            <span style={{ color: paper.signal, flex: "0 0 auto" }}>›</span>{x}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section style={{ padding: "80px 0 0" }}>
-        <Container>
-          <Reveal>
-            <div style={{ fontFamily: fonts.mono, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: paper.signalDeep, marginBottom: 22, display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ width: 22, height: 1, background: paper.signal, display: "inline-block" }} />
-              Project intelligence and reporting for construction consultants
-            </div>
-            <h1 className="display" style={{ fontWeight: 600, color: paper.oceanDeep, letterSpacing: "-0.02em", lineHeight: 1.08, maxWidth: "20ch", margin: 0 }}>
-              Dolemai — Know where every project stands.
-            </h1>
-            <p style={{ color: paper.inkSoft, fontSize: 18, lineHeight: 1.65, maxWidth: 620, marginTop: 26 }}>
-              Dolemai turns the documents and emails already used on your projects into a clear,
-              current view of cost, programme, risk, change and decisions — then prepares professional
-              reports for your clients, your team and your project board.
+      <section className="hero">
+        <div className="container hero-grid">
+          <div>
+            <div className="eyebrow">Continuous project intelligence for construction consultants</div>
+            <h1>Know what changed before anyone asks.</h1>
+            <p className="hero-copy">
+              Connect the folders and inboxes where your projects already live. Dolemai continuously
+              reviews new documents, emails and updates, then shows you what moved, what needs
+              attention and what your client needs to hear.
             </p>
-            <div style={{ marginTop: 34, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-              <a href={APP_URL + "/signup"} style={btnPrimary}>Start your first project</a>
-              <Link href="/how-it-works" style={{ fontSize: 14.5, fontWeight: 600, color: paper.oceanDeep, textDecoration: "none", borderBottom: "1px solid " + paper.sand, paddingBottom: 2 }}>
-                See how it works
-              </Link>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href={APP_URL + "/signup"}>Start monitoring your first project</a>
+              <a className="btn btn-secondary" href="#how-it-works">See Dolemai in action</a>
             </div>
-            <p style={{ color: paper.inkSoft, fontSize: 14, maxWidth: 620, marginTop: 18 }}>
-              Built for project managers, Employer&apos;s Agents and construction consultants who need a
-              reliable project position — not just another monthly report.
+            <p className="trust-line">
+              {`Built for project managers, Employer's Agents, Contract Administrators and architects managing live UK construction projects.`}
             </p>
-            <div className="dm-trust" style={{ marginTop: 22 }}>
-              {trust.map((t, i) => (
-                <span key={t} className="dm-trust-item">
-                  {i > 0 && <span style={{ color: paper.sand, marginRight: "10px" }}>·</span>}{t}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={160} style={{ marginTop: 52 }}>
-            <MacFrame url="app.dolemai.com/projects/riverside-works" style={{ maxWidth: 980, margin: "0 auto" }}>
-              <MockOverview />
-            </MacFrame>
-          </Reveal>
-        </Container>
+          <div className="hero-visual" aria-label="Dolemai product dashboard preview">
+            <div className="browser">
+              <div className="browser-top">
+                <span className="dot red" /><span className="dot amber" /><span className="dot green" />
+                <div className="url">app.dolemai.com/projects/riverside-works</div>
+              </div>
+              <div className="dash">
+                <div className="dash-head">
+                  <div>
+                    <div className="dash-title">Riverside Works</div>
+                    <div className="dash-meta">Construction stage · JCT SBC/Q · reviewed 9 mins ago</div>
+                  </div>
+                  <span className="status-pill">Project position current</span>
+                </div>
+                <div className="dash-strip">
+                  <div className="dash-card">
+                    <div className="dash-label">Changes since Friday</div>
+                    <div className="dash-value">6 movements</div>
+                    <div className="dash-note">Programme, design, change control and approvals</div>
+                  </div>
+                  <div className="dash-card">
+                    <div className="dash-label">Decisions required</div>
+                    <div className="dash-value">4 pending</div>
+                    <div className="dash-note">2 client · 1 consultant · 1 PM</div>
+                  </div>
+                  <div className="dash-card">
+                    <div className="dash-label">Information gaps</div>
+                    <div className="dash-value">7 open</div>
+                    <div className="dash-note">2 now affecting the look-ahead</div>
+                  </div>
+                </div>
+                <div className="dash-wide">
+                  <div className="dash-card">
+                    <div className="dash-label">What changed</div>
+                    <div className="activity-list">
+                      <div className="activity">
+                        <span className="activity-dot" />
+                        <div><strong>Programme revised</strong><small>Completion movement increased to 11 days</small></div>
+                        <time>08:42</time>
+                      </div>
+                      <div className="activity">
+                        <span className="activity-dot" />
+                        <div><strong>Client decision now overdue</strong><small>DNO route approval required this week</small></div>
+                        <time>09:10</time>
+                      </div>
+                      <div className="activity">
+                        <span className="activity-dot" />
+                        <div><strong>Three consultant responses received</strong><small>Fire, structural and landscape information updated</small></div>
+                        <time>10:06</time>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="dash-card">
+                    <div className="dash-label">This week</div>
+                    <div className="stack">
+                      <div className="mini-status"><span>Programme recovery</span><span className="tag warn">Required</span></div>
+                      <div className="mini-status"><span>Ground conditions</span><span className="tag danger">Critical</span></div>
+                      <div className="mini-status"><span>Weekly client brief</span><span className="tag good">Ready</span></div>
+                      <div className="mini-status"><span>Internal action report</span><span className="tag good">Ready</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Problem statement (compact) */}
-      <section style={{ padding: "56px 0" }}>
-        <Container>
-          <Reveal>
-            <div style={{ maxWidth: 720 }}>
-              <h3 className="display" style={{ fontWeight: 600, color: paper.oceanDeep, fontSize: "clamp(20px,2.4vw,26px)", margin: "0 0 16px", letterSpacing: "-0.01em" }}>
-                Every month, the same problem.
-              </h3>
-              <p style={{ color: paper.inkSoft, fontSize: 16.5, lineHeight: 1.7, margin: "0 0 14px" }}>
-                The information already exists. It is spread across meeting minutes, cost reports,
-                programme updates, compensation-event logs, valuations and email threads. Before you
-                can report, you have to read it all again, identify what changed and rebuild the
-                project story from the beginning.
-              </p>
-              <p style={{ color: paper.ink, fontSize: 16.5, lineHeight: 1.7, margin: 0 }}>
-                Dolemai helps maintain a current project position between reporting periods — so you
-                are not starting from zero every month.
-              </p>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* Horizontal slide section — immediately after hero */}
-      <div style={{ marginTop: 72 }}>
-        <HorizontalSlides />
+      {/* Logo strip */}
+      <div className="logo-strip">
+        <div className="container logo-grid">
+          <span>SHAREPOINT</span><span>ONEDRIVE</span><span>OUTLOOK</span><span>MICROSOFT 365</span><span>GOOGLE DRIVE</span>
+        </div>
       </div>
 
-      {/* Feature cards (4) */}
-      <Section>
-        <div style={{ textAlign: "center", marginBottom: 44 }}>
-          <Reveal><H2 style={{ fontSize: "clamp(26px,3.4vw,36px)" }}>Everything you need to maintain project control.</H2></Reveal>
+      {/* Pain — moved above How it works */}
+      <section className="pain">
+        <div className="container pain-grid">
+          <div>
+            <div className="section-kicker">The real problem</div>
+            <div className="pain-quote">Every week starts with detective work.</div>
+          </div>
+          <div className="pain-list">
+            <div className="pain-item"><span>01</span><div>New documents land in SharePoint, but no one tells you what materially changed.</div></div>
+            <div className="pain-item"><span>02</span><div>Meeting minutes, emails, risk registers and programmes hold different versions of the project story.</div></div>
+            <div className="pain-item"><span>03</span><div>Actions become overdue quietly, decisions drift and missing information only becomes visible when it starts affecting delivery.</div></div>
+            <div className="pain-item"><span>04</span><div>Before every client update, the PM has to rebuild the position again.</div></div>
+          </div>
         </div>
-        <div className="dm-grid-2" style={{ maxWidth: 900, margin: "0 auto" }}>
-          {features.map((f, i) => (
-            <Reveal key={f.t} delay={(i % 2) * 90}>
-              <Card style={{ height: "100%" }}>
-                <div style={{ width: 38, height: 38, borderRadius: 8, background: "rgba(91,168,217,0.12)", border: "1px solid rgba(91,168,217,0.35)", display: "flex", alignItems: "center", justifyContent: "center", color: paper.signalDeep, fontSize: 16, marginBottom: 14 }}>◆</div>
-                <h3 style={{ fontFamily: fonts.display, fontWeight: 600, color: paper.oceanDeep, fontSize: 18, margin: "0 0 8px" }}>{f.t}</h3>
-                <p style={{ color: paper.inkSoft, fontSize: 14.5, lineHeight: 1.6, margin: 0 }}>{f.b}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+      </section>
 
-      {/* Two-column feature: reporting + registers mockup */}
-      <Section>
-        <div className="dm-grid-2" style={{ alignItems: "center", gap: 48 }}>
-          <Reveal>
-            <div>
-              <H2 style={{ fontSize: "clamp(26px,3.4vw,36px)" }}>One approved project position. Two audiences.</H2>
-              <Lead style={{ marginTop: 18 }}>
-                Your client needs the overall position, the principal risks and the decisions requiring
-                their attention. Your internal team needs more detail — open actions, potential changes,
-                blockers and everything that must be resolved before the next reporting period. Dolemai
-                prepares both versions from the same reviewed project information, helping maintain
-                consistency between the outward client message and the internal delivery position.
-              </Lead>
-              <div className="dm-grid-2" style={{ marginTop: 26, gap: 24 }}>
-                <MiniList title="Client-facing report" items={clientReport} />
-                <MiniList title="Internal report" items={internalReport} />
+      {/* How it works */}
+      <section id="how-it-works">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">How it works</div>
+            <h2>Connect once. Stay current continuously.</h2>
+            <p className="section-lead">
+              Dolemai works with the project information your team already creates. No new project
+              administration system, no duplicate data entry and no need to start every report from a
+              blank page.
+            </p>
+          </div>
+          <div className="workflow-grid">
+            <article className="step">
+              <div className="step-num">01 / Connect</div>
+              <h3>Add the project sources.</h3>
+              <p>Connect SharePoint, OneDrive, Outlook or Google Drive. Dolemai starts monitoring your project documents and emails immediately.</p>
+            </article>
+            <article className="step">
+              <div className="step-num">02 / Review</div>
+              <h3>Dolemai watches what changes.</h3>
+              <p>New emails, reports, minutes, programmes, risks and change records are reviewed as they arrive.</p>
+            </article>
+            <article className="step">
+              <div className="step-num">03 / Understand</div>
+              <h3>Your project position updates.</h3>
+              <p>See movements, decisions, risks, actions, programme pressure, commercial changes and missing information.</p>
+            </article>
+            <article className="step">
+              <div className="step-num">04 / Report</div>
+              <h3>Briefings are prepared for review.</h3>
+              <p>Weekly and monthly client and internal reports are drafted from the same reviewed project intelligence.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* What Dolemai monitors (dark) */}
+      <section className="dark-section">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">What Dolemai monitors</div>
+            <h2>Your projects never stop moving. Neither should your understanding of them.</h2>
+            <p className="section-lead">
+              Dolemai is designed around the questions a project manager needs answered before a
+              client, contractor or project board asks.
+            </p>
+          </div>
+          <div className="monitor-grid">
+            <article className="monitor-card">
+              <h3>What changed?</h3>
+              <p>Track movement since the last review period.</p>
+              <ul>
+                <li>New documents and revised information</li>
+                <li>Programme movement and milestone slippage</li>
+                <li>New or escalated risks and issues</li>
+                <li>New instructions, changes and potential claims</li>
+              </ul>
+            </article>
+            <article className="monitor-card">
+              <h3>What needs attention?</h3>
+              <p>Surface the items most likely to affect delivery.</p>
+              <ul>
+                <li>Overdue actions and accountable parties</li>
+                <li>Decisions required from the client or team</li>
+                <li>Missing information and conflicting records</li>
+                <li>Consultant responses and coordination blockers</li>
+              </ul>
+            </article>
+            <article className="monitor-card">
+              <h3>What does the client need to hear?</h3>
+              <p>Turn the detailed project position into a clear outward message.</p>
+              <ul>
+                <li>Overall project status</li>
+                <li>Principal risks and mitigation</li>
+                <li>Programme and commercial headlines</li>
+                <li>Decisions, recommendations and look-ahead</li>
+              </ul>
+            </article>
+            <article className="monitor-card">
+              <h3>What does the team need to do?</h3>
+              <p>Keep the internal delivery position aligned with the client message.</p>
+              <ul>
+                <li>Full action and issue detail</li>
+                <li>Consultant coordination matters</li>
+                <li>Contract-administration items</li>
+                <li>Priorities before the next reporting cycle</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Scheduled intelligence */}
+      <section id="outputs">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">Scheduled intelligence</div>
+            <h2>Useful updates, not another dashboard to remember.</h2>
+            <p className="section-lead">
+              Dolemai can run on the reporting rhythm of the project and prepare the right level of
+              information for the right audience.
+            </p>
+          </div>
+          <div className="output-grid">
+            <article className="output-card">
+              <div className="output-tag">On demand</div>
+              <h3>Project brief</h3>
+              <p>Open Dolemai at any time and immediately see what changed since you last looked. Run a refresh whenever you need the latest position.</p>
+              <ul>
+                <li>New movements</li>
+                <li>Priority actions</li>
+                <li>Decisions due</li>
+                <li>Information gaps</li>
+              </ul>
+            </article>
+            <article className="output-card">
+              <div className="output-tag">Weekly</div>
+              <h3>Client and team status</h3>
+              <p>Two report versions prepared from one approved project position.</p>
+              <ul>
+                <li>Client-facing weekly update</li>
+                <li>Internal action and delivery report</li>
+                <li>Look-ahead and blockers</li>
+                <li>Source-linked evidence</li>
+              </ul>
+            </article>
+            <article className="output-card">
+              <div className="output-tag">Monthly</div>
+              <h3>Formal project report</h3>
+              <p>A structured monthly report showing the position and what moved during the period.</p>
+              <ul>
+                <li>Executive summary</li>
+                <li>Programme, cost and change</li>
+                <li>Risk and compliance</li>
+                <li>Client decisions and recommendations</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* The engine */}
+      <section>
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">Always on</div>
+            <h2>Your projects never stop moving. Neither does Dolemai.</h2>
+            <p className="section-lead">
+              Dolemai continuously reviews new documents, emails and updates as they arrive. Your
+              project position updates automatically — so by the time you open the app, it already
+              knows what changed.
+            </p>
+          </div>
+          <div className="engine-timeline">
+            {engineSteps.map((s, i) => (
+              <Reveal key={s.t} delay={i * 70}>
+                <div className={"engine-item" + (s.accent ? " accent" : "")}>{s.t}</div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal><div className="engine-foot">Connect once. Stay current continuously.</div></Reveal>
+        </div>
+      </section>
+
+      {/* Monday morning */}
+      <section className="pain">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">What you see when you open Dolemai</div>
+            <h2>What has happened since Friday?</h2>
+            <p className="section-lead">
+              {`Eight live projects. Three client meetings. Before you've had coffee, Dolemai already knows.`}
+            </p>
+          </div>
+          <div className="mday-grid">
+            <Reveal>
+              <article className="mday-card">
+                <h3>Dragonfly House <span>🟢</span></h3>
+                <ul>
+                  <li>Three consultant responses received</li>
+                  <li>Programme slipped four days</li>
+                  <li>One client decision overdue</li>
+                  <li>Risk register updated</li>
+                  <li className="link">Weekly briefing ready →</li>
+                </ul>
+              </article>
+            </Reveal>
+            <Reveal delay={100}>
+              <article className="mday-card">
+                <h3>Buckingham Palace <span>🟠</span></h3>
+                <ul>
+                  <li>New contractor instruction received</li>
+                  <li>MEP coordination issue identified</li>
+                  <li>Programme recovery required</li>
+                  <li className="link">Monthly report ready →</li>
+                </ul>
+              </article>
+            </Reveal>
+          </div>
+          <Reveal><div className="mday-foot">Every project. Every morning. Already reviewed.</div></Reveal>
+        </div>
+      </section>
+
+      {/* Two registers */}
+      <section>
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">A genuine differentiator</div>
+            <h2>Your appointment and the construction contract are not the same thing.</h2>
+            <p className="section-lead">
+              {`Most tools track one. Dolemai tracks both separately — because scope creep against your own fee is a different problem from variations under the contractor's contract.`}
+            </p>
+          </div>
+          <div className="tworeg-grid">
+            <Reveal>
+              <div className="tworeg-col">
+                <h3>Your appointment</h3>
+                <p>Changes to your scope, fee and services. Identified as they happen, not discovered at the end of the project when it is too late to recover the fee.</p>
+                <ul>
+                  <li>Fee variations and scope additions</li>
+                  <li>Notice periods and obligations</li>
+                  <li>Appointment change log with evidence trail</li>
+                </ul>
               </div>
-              <div style={{ marginTop: 24, borderLeft: "2px solid " + paper.signal, paddingLeft: 18, color: paper.inkSoft, fontSize: 14.5, lineHeight: 1.6, fontFamily: fonts.mono }}>
-                Every identified risk, action and change retains a reference to the source document that
-                produced it.
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="tworeg-col">
+                <h3>Construction contract</h3>
+                <p>Compensation events, variations and instructions under the JCT or NEC contract with the contractor. Tracked separately from your own appointment.</p>
+                <ul>
+                  <li>Compensation events and variations</li>
+                  <li>Contractor instructions</li>
+                  <li>Contract change register</li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal><div className="tworeg-foot">Both registers. One place. The evidence trail your PI insurer will thank you for.</div></Reveal>
+        </div>
+      </section>
+
+      {/* Ask Dolemai */}
+      <section className="pain">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">Project intelligence on demand</div>
+            <h2>Ask Dolemai anything about your project.</h2>
+            <p className="section-lead">
+              Every risk, action, decision, change and movement is stored and searchable. Ask a
+              question in plain English and get a structured answer grounded in your actual project
+              data.
+            </p>
+          </div>
+          <Reveal>
+            <div className="ask-chat">
+              <div className="chat-user">&ldquo;What changed on Dragonfly House since my holiday?&rdquo;</div>
+              <div className="chat-bot-label">Dolemai</div>
+              <div className="chat-bot">
+                <span>Three programme revisions.</span>
+                <span>One consultant changed.</span>
+                <span>Budget reduced £82k.</span>
+                <span>Four new risks identified.</span>
+                <span>Client approved planning condition.</span>
+                <span>No critical issues currently outstanding.</span>
               </div>
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <MacFrame url="app.dolemai.com/registers"><MockRegisters /></MacFrame>
-          </Reveal>
+          <Reveal><div className="ask-foot">No digging through folders. No reading minutes. Just ask.</div></Reveal>
+          <div className="ask-note">Ask Dolemai — available as a premium feature.</div>
         </div>
-      </Section>
+      </section>
 
-      {/* For whom */}
-      <Section bg={paper.paperWarm} style={{ borderTop: "1px solid " + paper.sandLine, borderBottom: "1px solid " + paper.sandLine }}>
-        <div style={{ textAlign: "center", marginBottom: 44 }}>
-          <Reveal><H2 style={{ fontSize: "clamp(26px,3.4vw,36px)" }}>Built for the people who carry reporting responsibility.</H2></Reveal>
-        </div>
-        <div className="dm-grid-3">
-          {whom.map((w, i) => (
-            <Reveal key={w.t} delay={(i % 3) * 90}>
-              <Card style={{ height: "100%" }}>
-                <h3 style={{ fontFamily: fonts.display, fontWeight: 600, color: paper.oceanDeep, fontSize: 18, margin: "0 0 10px" }}>{w.t}</h3>
-                <p style={{ color: paper.inkSoft, fontSize: 14.5, lineHeight: 1.6, margin: 0 }}>{w.b}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Pricing / closing CTA */}
-      <section style={{ background: paper.oceanDeep, padding: "88px 0" }}>
-        <Container>
-          <Reveal>
-            <div style={{ maxWidth: 620 }}>
-              <h2 className="display" style={{ fontWeight: 600, color: paper.paper, fontSize: "clamp(26px,3.6vw,40px)", margin: 0, letterSpacing: "-0.01em", lineHeight: 1.14 }}>
-                Stop rebuilding the project story every month.
-              </h2>
-              <p style={{ color: "#C3D2DA", fontSize: 17, lineHeight: 1.65, marginTop: 20 }}>
-                Connect your first project and create a current, reviewable project position from the
-                information you already use.
+      {/* Who it is for */}
+      <section id="who">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">Built for the person holding the project position</div>
+            <h2>Designed around project management responsibility.</h2>
+          </div>
+          <div className="who-grid">
+            <article className="persona-main">
+              <h3>{`Project Managers and Employer's Agents`}</h3>
+              <p>
+                Maintain a current view of delivery, decisions, risk, programme, coordination and
+                change across one or multiple live projects. Spend less time reconstructing what
+                happened and more time acting on it.
               </p>
-              <div style={{ marginTop: 30, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-                <a href={APP_URL + "/signup"} style={{ ...btnPrimary, background: paper.signal, borderColor: paper.signal, color: paper.oceanDeep }}>
-                  Start your first project
-                </a>
-                <Link href="/pricing" style={{ fontSize: 14.5, fontWeight: 600, color: paper.paper, textDecoration: "none", borderBottom: "1px solid rgba(251,248,242,0.4)", paddingBottom: 2 }}>
-                  See pricing
-                </Link>
-              </div>
-              <p style={{ color: "#93A7B2", fontSize: 13, marginTop: 16 }}>
-                First analysis and report drafts included. No credit card required.
-              </p>
+              <a className="btn btn-light" href={APP_URL + "/signup"}>Start your first project</a>
+            </article>
+            <div className="persona-side">
+              <article>
+                <h3>Contract Administrators</h3>
+                <p>Keep instructions, change, decisions, site issues and formal records connected to the current reporting position.</p>
+              </article>
+              <article>
+                <h3>Architects and Lead Consultants</h3>
+                <p>Track design coordination, consultant actions, statutory matters and client decisions without manually reviewing every thread and document.</p>
+              </article>
+              <article>
+                <h3>Independent consultants and small practices</h3>
+                <p>Gain structured project controls and reporting support without building a large project support team.</p>
+              </article>
             </div>
-          </Reveal>
-        </Container>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust */}
+      <section id="trust" className="trust">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">Professional control retained</div>
+            <h2>Built to support judgement, not replace it.</h2>
+          </div>
+          <div className="trust-grid">
+            <article className="trust-item">
+              <h3>Source-linked</h3>
+              <p>Every identified risk, action, decision and change can retain a reference to the source that produced it.</p>
+            </article>
+            <article className="trust-item">
+              <h3>Review-first</h3>
+              <p>Nothing is issued automatically. You review, amend and approve what goes out in your name.</p>
+            </article>
+            <article className="trust-item">
+              <h3>Privacy-led</h3>
+              <p>Project information is handled as working project data, not as material for public model training.</p>
+            </article>
+            <article className="trust-item">
+              <h3>UK AEC-aware</h3>
+              <p>Designed around UK construction workflows, including JCT, NEC, RIBA stages, CDM and Building Safety Act responsibilities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="final-cta">
+        <div className="container cta-wrap">
+          <div>
+            <h2>Stop rebuilding the project story every week.</h2>
+            <p>Connect your first project and create a current, reviewable project position from the information your team already uses.</p>
+          </div>
+          <a className="btn btn-light" href={APP_URL + "/signup"}>Start your first project</a>
+        </div>
+      </section>
+
+      {/* Second CTA */}
+      <section className="cta2">
+        <div className="container">
+          <h2>Already know you want it?</h2>
+          <p className="section-lead">Connect your first project in under three minutes. No credit card required for your first report.</p>
+          <div className="cta2-actions">
+            <a className="btn btn-primary" href={APP_URL + "/signup"}>Start your first project →</a>
+            <Link className="cta2-link" href="/demo/overview">Try the demo first →</Link>
+          </div>
+        </div>
       </section>
     </>
   );
