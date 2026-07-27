@@ -39,7 +39,7 @@ const addon = [
 
 const faqs = [
   { q: "Can I have projects on different tiers?", a: "Yes — each project has its own subscription. You can have some projects on Essential and others on Professional." },
-  { q: "What happens when I run out of credits?", a: "You can purchase add-on credit packs at any time from Project Settings → Billing. One pack adds 1 report generation, 2 refreshes and 5 Ask Dolemai queries for £5." },
+  { q: "What happens when I run out of credits?", a: "You can purchase add-on credit packs at any time from Project Settings → Billing. One pack adds 1 report generation, 2 refreshes and 5 Ask Dolemai queries for £3." },
   { q: "Can I cancel at any time?", a: "Yes. Cancel from Project Settings → Billing. Your subscription ends at the close of the current billing period and you retain access until then. Unused add-on credits are refunded." },
   { q: "Is there a discount for annual billing?", a: "Not currently. Annual billing is on our roadmap." },
 ];
@@ -133,7 +133,7 @@ export default function Pricing() {
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
           <Reveal>
             <Card>
-              <div className="section-kicker" style={{ marginBottom: 8 }}>Add-on credit pack — £5</div>
+              <div className="section-kicker" style={{ marginBottom: 8 }}>Add-on credit pack — £3</div>
               <h2 style={{ fontSize: 26, margin: "0 0 6px" }}>Top up any time</h2>
               <p style={{ color: colors.muted, fontSize: 15, lineHeight: 1.6, margin: "6px 0 0" }}>
                 Works on both tiers. Credits never expire.
