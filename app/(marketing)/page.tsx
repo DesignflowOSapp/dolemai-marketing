@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import HeroDemoAnimation from "@/components/HeroDemoAnimation";
 import { APP_URL } from "@/lib/theme";
 import { pageMeta } from "@/lib/seo";
 
@@ -45,70 +46,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hero-visual" aria-label="Dolemai product dashboard preview">
-            <div className="browser">
-              <div className="browser-top">
-                <span className="dot red" /><span className="dot amber" /><span className="dot green" />
-                <div className="url">app.dolemai.com/projects/riverside-works</div>
-              </div>
-              <div className="dash">
-                <div className="dash-head">
-                  <div>
-                    <div className="dash-title">Riverside Works</div>
-                    <div className="dash-meta">Construction stage · JCT SBC/Q · reviewed 9 mins ago</div>
-                  </div>
-                  <span className="status-pill">Project position current</span>
-                </div>
-                <div className="dash-strip">
-                  <div className="dash-card">
-                    <div className="dash-label">Changes since Friday</div>
-                    <div className="dash-value">6 movements</div>
-                    <div className="dash-note">Programme, design, change control and approvals</div>
-                  </div>
-                  <div className="dash-card">
-                    <div className="dash-label">Decisions required</div>
-                    <div className="dash-value">4 pending</div>
-                    <div className="dash-note">2 client · 1 consultant · 1 PM</div>
-                  </div>
-                  <div className="dash-card">
-                    <div className="dash-label">Information gaps</div>
-                    <div className="dash-value">7 open</div>
-                    <div className="dash-note">2 now affecting the look-ahead</div>
-                  </div>
-                </div>
-                <div className="dash-wide">
-                  <div className="dash-card">
-                    <div className="dash-label">What changed</div>
-                    <div className="activity-list">
-                      <div className="activity">
-                        <span className="activity-dot" />
-                        <div><strong>Programme revised</strong><small>Completion movement increased to 11 days</small></div>
-                        <time>08:42</time>
-                      </div>
-                      <div className="activity">
-                        <span className="activity-dot" />
-                        <div><strong>Client decision now overdue</strong><small>DNO route approval required this week</small></div>
-                        <time>09:10</time>
-                      </div>
-                      <div className="activity">
-                        <span className="activity-dot" />
-                        <div><strong>Three consultant responses received</strong><small>Fire, structural and landscape information updated</small></div>
-                        <time>10:06</time>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="dash-card">
-                    <div className="dash-label">This week</div>
-                    <div className="stack">
-                      <div className="mini-status"><span>Programme recovery</span><span className="tag warn">Required</span></div>
-                      <div className="mini-status"><span>Ground conditions</span><span className="tag danger">Critical</span></div>
-                      <div className="mini-status"><span>Weekly client brief</span><span className="tag good">Ready</span></div>
-                      <div className="mini-status"><span>Internal action report</span><span className="tag good">Ready</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="hero-visual" aria-label="Dolemai product overview animation">
+            <HeroDemoAnimation />
           </div>
         </div>
       </section>
@@ -405,7 +344,6 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal><div className="ask-foot">No digging through folders. No reading minutes. Just ask.</div></Reveal>
-          <div className="ask-note">Ask Dolemai — available as a premium feature.</div>
         </div>
       </section>
 

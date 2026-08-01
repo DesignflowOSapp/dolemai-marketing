@@ -13,8 +13,9 @@ export function useTimeline(loopMs: number, opts?: { once?: boolean; restAt?: nu
   const restAt = opts?.restAt ?? loopMs;
   const [t, setT] = useState(0);
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { setT(restAt); return; }
+    // Reduced motion only skips play-once animations (accessibility). Looping
+    // animations keep looping as intended.
+    if (once && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setT(restAt); return; }
     let raf = 0;
     let last = performance.now();
     let elapsed = 0;
