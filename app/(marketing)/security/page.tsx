@@ -30,12 +30,12 @@ export default function Security() {
       <H>Responsible disclosure</H>
       <P>If you believe you have found a security vulnerability in Dolemai, please contact us so we can investigate and resolve it. We appreciate responsible disclosure and will work with you in good faith.</P>
       <UL items={[
-        "Report security issues to: support@designflowos.com",
+        "Report security issues to: support@dolemai.com",
         "Please include enough detail for us to reproduce the issue, and give us reasonable time to respond before any public disclosure.",
       ]} />
 
       <H>Contact</H>
-      <P>Security questions can be sent to support@designflowos.com.</P>
+      <P>Security questions can be sent to support@dolemai.com.</P>
     </LegalShell>
   );
 }

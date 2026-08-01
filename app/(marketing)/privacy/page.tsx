@@ -1,4 +1,4 @@
-import { LegalShell, H, Sub, P, PB, UL, Table } from "@/components/legal";
+import { LegalShell, H, Sub, P, PB, UL } from "@/components/legal";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -12,7 +12,7 @@ export default function Privacy() {
   return (
     <LegalShell
       title="Privacy policy"
-      updated="23 July 2026"
+      updated="1 August 2026"
       intro="Dolemai is provided by Lapunne Limited, a company registered in England and Wales. This policy explains how we collect, use and protect your personal data when you use Dolemai at app.dolemai.com."
     >
       <P>{`Please read this policy carefully. By using Dolemai you agree to the collection and use of your data as described here.`}</P>
@@ -20,7 +20,7 @@ export default function Privacy() {
       <H>1. Who we are</H>
       <PB lead="Data controller:" text="Lapunne Limited" />
       <PB lead="Trading as:" text="Dolemai" />
-      <PB lead="Contact:" text="support@designflowos.com" />
+      <PB lead="Contact:" text="support@dolemai.com" />
       <PB lead="Website:" text="dolemai.com" />
       <P>{`Lapunne Limited is registered with the Information Commissioner's Office (ICO). Registration reference: ZB111903.`}</P>
       <P>{`If you have any questions about how we handle your data, contact us at the address above.`}</P>
@@ -69,6 +69,7 @@ export default function Privacy() {
       <P>{`Dolemai uses the Anthropic Claude API to process your project documents and generate report content. When you run an analysis or generate a report, your project documents and data are sent to Anthropic's API for processing.`}</P>
       <P>{`Anthropic does not use data submitted through their API to train AI models by default, in accordance with their commercial terms of service. You can review Anthropic's privacy and data handling policies at anthropic.com.`}</P>
       <P>{`Dolemai also uses OpenAI's API to generate embeddings of public UK legislation content. This is used to ground report outputs in relevant regulatory context. No project data, personal data or project documents are sent to OpenAI — only queries against public legislative text.`}</P>
+      <P>{`Lapunne Limited does not use your project data, documents or personal data to train artificial intelligence models. Project data submitted through the Dolemai service is used solely to provide the service to you. The Anthropic API used for AI processing does not train on data submitted through their commercial API by default.`}</P>
 
       <H>6. Data storage and security</H>
       <Sub>Where your data is stored</Sub>
@@ -81,23 +82,26 @@ export default function Privacy() {
         "Usage logs: retained for 90 days",
       ]} />
       <Sub>Security measures</Sub>
-      <P>{`We implement appropriate technical and organisational measures to protect your data including encrypted data storage, secure API connections, authentication controls and access restrictions. No system is completely secure — if you believe your account has been compromised, contact us immediately at support@designflowos.com.`}</P>
+      <P>{`We implement appropriate technical and organisational measures to protect your data including encrypted data storage, secure API connections, authentication controls and access restrictions. No system is completely secure — if you believe your account has been compromised, contact us immediately at support@dolemai.com.`}</P>
 
       <H>7. Third parties we use</H>
       <P>{`We share data with the following third parties as necessary to provide the service:`}</P>
-      <Table
-        head={["Provider", "Purpose", "Data shared"]}
-        rows={[
-          ["Anthropic", "AI document processing", "Project documents, project context"],
-          ["Supabase", "Database and authentication", "Account and project data"],
-          ["Stripe", "Payment processing", "Billing and subscription data"],
-          ["Resend", "Email delivery", "Email address, email content"],
-          ["Microsoft (Azure)", "Microsoft 365 integration", "OAuth tokens for folder/email access"],
-          ["Google", "Authentication (sign-in)", "Email address, name, Google account identifier"],
-          ["Google", "Cloud storage integration (Google Drive — when connected by user)", "OAuth access token for connected folders only"],
-          ["Cloudflare", "Hosting and CDN", "Request logs, technical data"],
-        ]}
-      />
+      <div className="legal-table">
+        <table>
+          <thead><tr><th>Provider</th><th>Purpose</th><th>Data shared</th><th>Website</th></tr></thead>
+          <tbody>
+            <tr><td>Anthropic</td><td>AI document processing</td><td>Project documents, project context</td><td><a href="https://anthropic.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>anthropic.com</a></td></tr>
+            <tr><td>Supabase</td><td>Database and authentication</td><td>Account and project data</td><td><a href="https://supabase.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>supabase.com</a></td></tr>
+            <tr><td>Stripe</td><td>Payment processing</td><td>Billing and subscription data</td><td><a href="https://stripe.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>stripe.com</a></td></tr>
+            <tr><td>Resend</td><td>Email delivery</td><td>Email address, email content</td><td><a href="https://resend.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>resend.com</a></td></tr>
+            <tr><td>Microsoft (Azure)</td><td>Microsoft 365 integration</td><td>OAuth tokens for folder/email access</td><td><a href="https://microsoft.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>microsoft.com</a></td></tr>
+            <tr><td>Google</td><td>Authentication (sign-in)</td><td>Email address, name, Google account identifier</td><td><a href="https://google.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>google.com</a></td></tr>
+            <tr><td>Google</td><td>Cloud storage integration (Google Drive — when connected by user)</td><td>OAuth access token for connected folders only</td><td><a href="https://google.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>google.com</a></td></tr>
+            <tr><td>Cloudflare</td><td>Hosting and CDN</td><td>Request logs, technical data</td><td><a href="https://cloudflare.com" target="_blank" rel="noopener noreferrer" style={{ color: "#4d8cba", fontWeight: 600 }}>cloudflare.com</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <P>A full list of our sub-processors with details of their locations and the safeguards in place for international transfers is available at <a href="/sub-processors" style={{ color: "#4d8cba", fontWeight: 600 }}>dolemai.com/sub-processors</a>.</P>
       <P>{`We do not share your data with any other third parties without your consent except where required by law.`}</P>
 
       <H>8. Microsoft 365 integration</H>
@@ -121,7 +125,7 @@ export default function Privacy() {
       <PB lead="Right to portability" text="— you may request your data in a structured, machine-readable format." />
       <PB lead="Right to object" text="— you may object to processing based on legitimate interests." />
       <PB lead="Right to withdraw consent" text="— where processing is based on consent, you may withdraw it at any time." />
-      <P>{`To exercise any of these rights, contact us at support@designflowos.com. We will respond within one month.`}</P>
+      <P>{`To exercise any of these rights, contact us at support@dolemai.com. We will respond within one month.`}</P>
       <P>{`You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at ico.org.uk if you believe we have not handled your data correctly.`}</P>
 
       <H>11. Cookies</H>
@@ -130,7 +134,7 @@ export default function Privacy() {
       <P>{`You can manage cookie preferences at any time via the cookie settings link in the footer.`}</P>
 
       <H>12. Children</H>
-      <P>{`Dolemai is a professional service intended for use by adults. We do not knowingly collect data from anyone under the age of 18. If you believe a child has provided us with personal data, contact us at support@designflowos.com and we will delete it.`}</P>
+      <P>{`Dolemai is a professional service intended for use by adults. We do not knowingly collect data from anyone under the age of 18. If you believe a child has provided us with personal data, contact us at support@dolemai.com and we will delete it.`}</P>
 
       <H>13. Changes to this policy</H>
       <P>{`We may update this policy from time to time. We will notify you of material changes by email. The current version is always available at dolemai.com/privacy.`}</P>
@@ -138,7 +142,7 @@ export default function Privacy() {
       <H>14. Contact</H>
       <P>{`If you have any questions about this policy or how we handle your data:`}</P>
       <P>{`Lapunne Limited`}</P>
-      <P>{`support@designflowos.com`}</P>
+      <P>{`support@dolemai.com`}</P>
       <P>{`dolemai.com`}</P>
       <P>{`For data protection queries specifically, contact us with the subject line "Data Protection".`}</P>
     </LegalShell>

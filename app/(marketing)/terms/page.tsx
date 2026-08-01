@@ -1,4 +1,4 @@
-import { LegalShell, H, Sub, P, UL } from "@/components/legal";
+import { LegalShell, H, Sub, P, PB, UL } from "@/components/legal";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -12,7 +12,7 @@ export default function Terms() {
   return (
     <LegalShell
       title="Terms and conditions"
-      updated="23 July 2026"
+      updated="1 August 2026"
       intro="Dolemai is a software service provided by Lapunne Limited, a company registered in England and Wales. These terms govern your use of the Dolemai platform at app.dolemai.com."
     >
       <P>{`By creating an account or using Dolemai, you agree to these terms. If you do not agree, do not use the service.`}</P>
@@ -21,16 +21,26 @@ export default function Terms() {
       <P>{`Dolemai is a project intelligence and reporting tool for construction consultants, project managers, Employer's Agents and related professionals. It connects to your project documents and emails, identifies changes and extracts project intelligence, and prepares draft reports for your professional review.`}</P>
       <P>{`Dolemai is a professional tool. All outputs — including extracted register items, risk assessments, programme summaries and report drafts — are AI-generated and require your professional review before being relied upon or issued. Dolemai does not replace professional judgement.`}</P>
 
-      <H>2. Professional responsibility</H>
+            <H>2. About AI-generated outputs</H>
+      <P>{`Dolemai uses artificial intelligence to read your project documents, extract information and prepare report drafts. AI can be genuinely useful for this work — but it can also miss things, misclassify information, or produce outputs that require correction.`}</P>
+      <P><strong>You must never rely on Dolemai outputs without professional review.</strong></P>
+      <P>{`Specifically:`}</P>
+      <PB lead="Dolemai may miss important information." text="A risk, action, decision or contract change present in your documents may not be identified or may be classified incorrectly. The absence of an item in a Dolemai register does not mean that item does not exist." />
+      <PB lead="Dolemai may produce inaccurate outputs." text="Dates, figures, names, references and other details in AI-generated reports must be verified against source documents before issue." />
+      <PB lead="Dolemai does not replace professional judgement." text="Contract administration, risk assessment, programme management, cost control and all other professional functions remain entirely your responsibility. Dolemai is a tool to support your work — not to perform it." />
+      <PB lead="You remain responsible to your client." text="Whatever Dolemai produces, your professional responsibility to your client is unchanged. Do not issue any Dolemai output to a client, funder, contractor or third party without reviewing it and satisfying yourself that it is accurate, appropriate and complete." />
+      <P>{`By using Dolemai you confirm that you understand these limitations and accept sole professional responsibility for any outputs you issue.`}</P>
+
+      <H>3. Professional responsibility</H>
       <P>{`You are responsible for reviewing all AI-generated outputs before use. Dolemai prepares drafts — you approve, amend and issue. The professional responsibility for any report, advice, assessment or decision remains entirely with you.`}</P>
       <P>{`Dolemai is not a substitute for professional advice. Nothing produced by Dolemai constitutes legal, contractual, financial, structural or regulatory advice. You should not rely on Dolemai outputs without independent professional review appropriate to the circumstances.`}</P>
 
-      <H>3. Your account</H>
+      <H>4. Your account</H>
       <P>{`You must create an account to use Dolemai, using email and password, Microsoft SSO or Google sign-in. You are responsible for keeping your login credentials secure. You must not share your account with others or allow others to access the service using your credentials.`}</P>
       <P>{`You must provide accurate information when creating your account. You must be at least 18 years old to use Dolemai.`}</P>
       <P>{`We may suspend or terminate your account if we reasonably believe you have breached these terms.`}</P>
 
-      <H>4. Subscriptions and billing</H>
+      <H>5. Subscriptions and billing</H>
 
       <Sub>How subscriptions work</Sub>
       <P>{`Dolemai is billed on a per-project, per-month basis at the rate published on our pricing page at dolemai.com/pricing. Each active project requires a separate subscription. Your subscription begins when you complete payment and gives you access to all Dolemai features for that project for the billing period.`}</P>
@@ -72,7 +82,7 @@ export default function Terms() {
       <Sub>Refunds</Sub>
       <P>{`Monthly subscription fees are non-refundable except as described above in relation to add-on credits and project closure. We do not offer pro-rata refunds for unused days within a billing period.`}</P>
 
-      <H>5. Acceptable use</H>
+      <H>6. Acceptable use</H>
       <P>{`You must use Dolemai only for lawful purposes and in accordance with these terms. You must not:`}</P>
       <UL items={[
         "Use Dolemai to process documents you do not have the right to share",
@@ -82,16 +92,16 @@ export default function Terms() {
         "Use Dolemai in any way that could damage, disable or impair the service",
       ]} />
 
-      <H>6. Intellectual property</H>
+      <H>7. Intellectual property</H>
       <P>{`Dolemai and its underlying technology are owned by Lapunne Limited. We grant you a non-exclusive, non-transferable licence to use Dolemai for the duration of your subscription.`}</P>
       <P>{`You retain ownership of your project documents and the information you provide. You grant us a limited licence to process your documents and data solely for the purpose of providing the service to you. We do not use your project data to train AI models.`}</P>
       <P>{`Reports and register outputs generated by Dolemai from your project data belong to you.`}</P>
 
-      <H>7. Data and privacy</H>
+      <H>8. Data and privacy</H>
       <P>{`We process your personal data and project information in accordance with our Privacy Policy at dolemai.com/privacy. Project documents are processed in memory to extract intelligence and are not stored on our servers after processing. The structured intelligence extracted — risks, actions, decisions and changes — is retained to provide the service.`}</P>
       <P>{`We use Anthropic's Claude API to process documents. Anthropic does not use submitted data for model training by default under their commercial terms.`}</P>
 
-      <H>8. No warranty</H>
+      <H>9. No warranty</H>
       <P>{`Dolemai is provided as a professional tool to assist your work. We do not warrant that:`}</P>
       <UL items={[
         "AI-generated outputs are accurate, complete or fit for any particular purpose",
@@ -100,7 +110,7 @@ export default function Terms() {
       ]} />
       <P>{`All AI-generated outputs require professional review before use. You use Dolemai at your own professional risk.`}</P>
 
-      <H>9. Limitation of liability</H>
+      <H>10. Limitation of liability</H>
       <P>{`To the fullest extent permitted by law, Lapunne Limited shall not be liable for:`}</P>
       <UL items={[
         "Any loss arising from your reliance on AI-generated outputs without professional review",
@@ -111,16 +121,16 @@ export default function Terms() {
       <P>{`Our total liability to you for any claim arising from these terms or your use of Dolemai shall not exceed the amount you paid us in the three months preceding the claim.`}</P>
       <P>{`Nothing in these terms excludes or limits our liability for death or personal injury caused by our negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded by law.`}</P>
 
-      <H>10. Changes to the service and terms</H>
+      <H>11. Changes to the service and terms</H>
       <P>{`We may update these terms from time to time. We will notify you of material changes by email. Continued use of Dolemai after notification constitutes acceptance of the updated terms.`}</P>
       <P>{`We may change, suspend or discontinue any part of the service at any time. We will give reasonable notice where possible.`}</P>
 
-      <H>11. Governing law</H>
+      <H>12. Governing law</H>
       <P>{`These terms are governed by the laws of England and Wales. Any disputes arising from these terms or your use of Dolemai shall be subject to the exclusive jurisdiction of the courts of England and Wales.`}</P>
 
-      <H>12. Contact</H>
+      <H>13. Contact</H>
       <P>{`Lapunne Limited`}</P>
-      <P>{`support@designflowos.com`}</P>
+      <P>{`support@dolemai.com`}</P>
       <P>{`dolemai.com`}</P>
     </LegalShell>
   );

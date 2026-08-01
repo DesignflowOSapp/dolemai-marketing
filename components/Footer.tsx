@@ -28,13 +28,15 @@ export default function Footer() {
             <Link href="/terms">Terms</Link>
             <Link href="/cookies">Cookies</Link>
             <Link href="/security">Security</Link>
+            <Link href="/dpa">Data Processing Agreement</Link>
+            <Link href="/sub-processors">Sub-processors</Link>
           </div>
 
           <div className="footer-col">
             <h4>Support</h4>
             <Link href="/support">Support</Link>
             <Link href="/support">FAQ</Link>
-            <a href="mailto:support@designflowos.com">Contact</a>
+            <a href="mailto:support@dolemai.com">Contact</a>
           </div>
 
           <div className="footer-col">

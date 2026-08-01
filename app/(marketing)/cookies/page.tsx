@@ -32,7 +32,7 @@ export default function Cookies() {
       <P>You can control and delete cookies through your browser settings. Blocking essential cookies may prevent you from signing in to the Dolemai app. You can also change your consent choice on this site by clearing this site&apos;s data in your browser.</P>
 
       <H>Contact</H>
-      <P>Questions about our use of cookies can be sent to support@designflowos.com.</P>
+      <P>Questions about our use of cookies can be sent to support@dolemai.com.</P>
     </LegalShell>
   );
 }

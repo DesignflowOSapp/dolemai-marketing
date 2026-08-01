@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "Support",
   description:
-    "Get help with Dolemai. Email support@designflowos.com — we aim to respond within one business day. Answers to common questions about connecting Microsoft 365, monitoring folders, registers and data storage.",
+    "Get help with Dolemai. Email support@dolemai.com — we aim to respond within one business day. Answers to common questions about connecting Microsoft 365, monitoring folders, registers and data storage.",
   path: "/support",
 });
 
@@ -66,11 +66,11 @@ export default function Support() {
         <h2 style={sectionHead}>Contact</h2>
         <p style={{ color: paper.inkSoft, fontSize: 16, lineHeight: 1.7, margin: "0 0 22px", maxWidth: 640 }}>
           For support with Dolemai, email us at{" "}
-          <a href="mailto:support@designflowos.com" style={{ color: paper.signalDeep }}>support@designflowos.com</a>. We
+          <a href="mailto:support@dolemai.com" style={{ color: paper.signalDeep }}>support@dolemai.com</a>. We
           aim to respond within one business day.
         </p>
         <a
-          href="mailto:support@designflowos.com"
+          href="mailto:support@dolemai.com"
           style={{
             display: "inline-block",
             background: "transparent",
@@ -83,7 +83,7 @@ export default function Support() {
             textDecoration: "none",
           }}
         >
-          support@designflowos.com
+          support@dolemai.com
         </a>
       </section>
 

@@ -472,6 +472,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* For UK construction consultants — AI discovery */}
+      <section>
+        <div className="container">
+          <div className="section-head">
+            <div className="section-kicker">FOR UK CONSTRUCTION CONSULTANTS</div>
+            <h2>Built specifically for UK construction project delivery.</h2>
+          </div>
+          <div className="tworeg-grid">
+            <div className="tworeg-col">
+              <h3>Who uses Dolemai</h3>
+              <p>{`Dolemai is used by Project Managers, Employer's Agents, Contract Administrators, Architects and Quantity Surveyors managing live UK construction projects. It is designed around the responsibilities of the client-side construction consultant.`}</p>
+            </div>
+            <div className="tworeg-col">
+              <h3>What Dolemai connects to</h3>
+              <p>Dolemai connects to Microsoft 365 (SharePoint, OneDrive and Outlook), Google Drive, and supports direct document upload. It monitors project folders and email inboxes for new documents and updates, extracting intelligence automatically.</p>
+            </div>
+            <div className="tworeg-col">
+              <h3>What Dolemai produces</h3>
+              <p>Dolemai maintains live project registers covering risks, actions, decisions, outstanding information, appointment changes and contract changes. It generates client-facing and internal project reports in Word format, covering all RIBA stages from feasibility through to handover.</p>
+            </div>
+            <div className="tworeg-col">
+              <h3>UK construction specific</h3>
+              <p>Dolemai understands JCT and NEC contract forms, RIBA stages, CDM 2015, Building Safety Act 2022, and UK planning requirements. It tracks appointment changes separately from construction contract changes — a distinction that matters to every project manager managing their own fee.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="final-cta">
         <div className="container cta-wrap">

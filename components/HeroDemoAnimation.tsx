@@ -37,7 +37,7 @@ function cursorFor(t: number): { x: string; y: string; click: boolean } | null {
 }
 
 export default function HeroDemoAnimation() {
-  const t = useTimeline(22000);
+  const t = useTimeline(22000, { once: true, restAt: 20800 });
   const c = cursorFor(t);
 
   const folderOn = t < 4000;

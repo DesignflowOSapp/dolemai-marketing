@@ -14,7 +14,7 @@ const answer = [
 ];
 
 export default function AskDemoAnimation() {
-  const t = useTimeline(13000);
+  const t = useTimeline(13000, { restAt: 9200 });
 
   const overviewOn = t < 3600;
   const askOn = t >= 3600;
