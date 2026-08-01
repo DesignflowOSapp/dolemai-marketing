@@ -3,13 +3,19 @@ import { useTimeline } from "@/components/useAnimTimeline";
 import { AnimFrame, Cursor, SIGNAL, RED, AMBER, GREEN, MONO, darkCard, monoLabel, overlay } from "@/components/animShared";
 import OverviewMock from "@/components/OverviewMock";
 
-const folders = ["Documents / 2024", "Projects / Active", "Riverside Works / 2026", "Archive / 2023"];
-const docs = [
-  "Reading: Programme_Rev3.xlsx",
-  "Reading: Meeting_Minutes_14Jul.docx",
-  "Reading: RFI_Response_009.pdf",
-  "Reading: Budget_Update_Q2.xlsx",
-  "Reading: Risk_Register_v4.xlsx",
+const folders = [
+  { name: "Documents / 2024", date: "12 Jan 2024" },
+  { name: "Projects / Active", date: "3 Mar 2026" },
+  { name: "Riverside Works / 2026", date: "16 Jul 2026" },
+  { name: "Archive / 2023", date: "20 Nov 2023" },
+];
+const readLines = [
+  "Reading Programme_Rev3.xlsx...",
+  "Reading Meeting_Minutes_14Jul.docx...",
+  "Reading RFI_Response_009.pdf...",
+  "Reading Budget_Update_Q2.xlsx...",
+  "Reading Risk_Register_v4.xlsx...",
+  "Building project intelligence...",
 ];
 const risks = [
   { id: "R001", text: "No contingency in budget estimate", sev: "Critical", tone: RED },
@@ -20,8 +26,8 @@ const chip = (color: string, bg: string): React.CSSProperties => ({ color, backg
 
 function cursorFor(t: number): { x: string; y: string; click: boolean } | null {
   if (t < 4000) {
-    const y = t < 800 ? 104 : t < 2400 ? 104 + ((t - 800) / 1600) * 74 : 178;
-    return { x: "42%", y: y + "px", click: t >= 2900 && t < 3300 };
+    const y = t < 800 ? 120 : t < 2400 ? 120 + ((t - 800) / 1600) * 66 : 186;
+    return { x: "36%", y: y + "px", click: t >= 2900 && t < 3300 };
   }
   if (t >= 11000 && t < 15200) {
     if (t < 11500) return { x: "calc(100% - 128px)", y: "244px", click: t >= 11250 && t < 11500 };
@@ -36,13 +42,13 @@ function cursorFor(t: number): { x: string; y: string; click: boolean } | null {
   return null;
 }
 
-export default function HeroDemoAnimation() {
+export default function HeroDemoAnimation({ maxWidth }: { maxWidth?: number }) {
   const t = useTimeline(22000, { once: true, restAt: 20800 });
   const c = cursorFor(t);
 
   const folderOn = t < 4000;
-  const readingOn = t >= 4000 && t < 6200;
-  const dashOn = (t >= 6000 && t < 11400) || t >= 19000;
+  const readingOn = t >= 4000 && t < 6600;
+  const dashOn = (t >= 6400 && t < 11400) || t >= 19000;
   const riskOn = t >= 11200 && t < 19000;
   const reviewOn = t >= 15200 && t < 19000;
   const fade = t >= 21300 ? Math.min(1, (t - 21300) / 700) : 0;
@@ -50,50 +56,71 @@ export default function HeroDemoAnimation() {
   const riversideHover = t >= 2200 && t < 3000;
   const connecting = t >= 3000 && t < 3500;
   const connected = t >= 3500 && t < 4000;
-  const building = t >= 5800 && t < 6200;
   const statusConfirmed = t >= 17500;
   const dropdownOpen = t >= 16500 && t < 17650;
   const saved = t >= 17900 && t < 18900;
 
   return (
-    <AnimFrame minHeight={540}>
-      {/* ===== Phase 1 — folder picker ===== */}
+    <AnimFrame minHeight={540} maxWidth={maxWidth}>
+      {/* ===== Phase 1 — folder picker + project details ===== */}
       <div style={overlay(folderOn, { pointerEvents: "none" })}>
-        <div style={{ ...monoLabel, marginBottom: 12 }}>Connect a project folder</div>
-        <div style={{ ...darkCard, padding: 8 }}>
-          {folders.map((f, i) => {
-            const isRiver = i === 2;
-            const hot = isRiver && (riversideHover || connecting || connected);
-            return (
-              <div key={f} style={{ display: "flex", alignItems: "center", gap: 10, padding: "11px 12px", borderRadius: 8,
-                background: hot ? "rgba(91,168,217,0.14)" : "transparent",
-                border: "1px solid " + (hot ? "rgba(91,168,217,0.4)" : "transparent"), transition: "all .25s ease" }}>
-                <span style={{ fontSize: 15 }}>📁</span>
-                <span style={{ color: "#dbe3ea", fontSize: 13.5, flex: 1 }}>{f}</span>
-                {isRiver && connecting && <span style={{ color: SIGNAL, fontSize: 12, fontFamily: MONO }}><span style={{ display: "inline-block", animation: "dm-spin 0.8s linear infinite" }}>◠</span> Connecting…</span>}
-                {isRiver && connected && <span style={{ color: GREEN, fontSize: 12, fontWeight: 700 }}>✓ Connected</span>}
-              </div>
-            );
-          })}
+        <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 14 }}>
+          {/* left: folder picker */}
+          <div style={{ ...darkCard, padding: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, background: "#0d1116", border: "1px solid #23262C", borderRadius: 8, padding: "7px 10px", color: "#6b7178", fontSize: 12, marginBottom: 10 }}>
+              <span>🔍</span><span>Search folders</span>
+            </div>
+            <div style={{ display: "grid", gap: 4 }}>
+              {folders.map((f, i) => {
+                const isRiver = i === 2;
+                const hot = isRiver && (riversideHover || connecting || connected);
+                return (
+                  <div key={f.name} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8,
+                    background: hot ? "rgba(91,168,217,0.14)" : "transparent",
+                    border: "1px solid " + (hot ? "rgba(91,168,217,0.4)" : "transparent"), transition: "all .25s ease" }}>
+                    <span style={{ fontSize: 15 }}>📁</span>
+                    <span style={{ color: "#dbe3ea", fontSize: 13, flex: 1 }}>{f.name}</span>
+                    <span style={{ color: "#6b7178", fontSize: 11, fontFamily: MONO }}>{f.date}</span>
+                    {isRiver && riversideHover && <span style={{ background: SIGNAL, color: "#08131c", fontSize: 11, fontWeight: 700, borderRadius: 6, padding: "4px 10px" }}>Connect</span>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* right: project details */}
+          <div style={{ ...darkCard, padding: 14 }}>
+            <div style={{ color: "#F2F1ED", fontSize: 15, fontWeight: 750 }}>Riverside Works</div>
+            <div style={{ color: "#8B8F96", fontSize: 12, marginTop: 4 }}>Construction stage · JCT SBC/Q</div>
+            <div style={{ color: "#9aa2ab", fontSize: 12, marginTop: 12 }}>Client: Riverside Developments Ltd</div>
+            <div style={{ color: "#9aa2ab", fontSize: 12, marginTop: 3 }}>PM: Pearl Ume Associates</div>
+            <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid #23262C" }}>
+              {t < 3000 && <div style={{ color: "#6b7178", fontSize: 12 }}>Select a folder to connect</div>}
+              {connecting && <div style={{ color: SIGNAL, fontSize: 12, fontFamily: MONO }}><span style={{ display: "inline-block", animation: "dm-spin .8s linear infinite" }}>◠</span> Connecting…</div>}
+              {connected && <div style={{ color: GREEN, fontSize: 12.5, fontWeight: 700 }}>✓ Connected — Riverside Works / 2026</div>}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* ===== Phase 2 — reading ===== */}
-      <div style={overlay(readingOn)}>
-        <div style={{ fontFamily: MONO, fontSize: 12.5, lineHeight: 2, filter: t >= 5600 ? "blur(3px)" : "none", opacity: t >= 5800 ? 0 : 1, transition: "filter .3s ease, opacity .4s ease" }}>
-          {docs.map((d, i) => {
-            const on = t >= 4100 + i * 300;
-            return <div key={d} style={{ color: "#7fb2d6", opacity: on ? 1 : 0, transform: on ? "none" : "translateY(8px)", transition: "opacity .25s ease, transform .25s ease" }}>{d}</div>;
-          })}
-        </div>
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: SIGNAL, fontSize: 13, fontWeight: 600, opacity: building ? 1 : 0, transition: "opacity .3s" }}>
-          Building project intelligence…
+      {/* ===== Phase 2 — reading banner (single-line typewriter) ===== */}
+      <div style={overlay(readingOn, { display: "flex", alignItems: "flex-start", justifyContent: "center" })}>
+        <div style={{ background: "rgba(91,168,217,0.15)", border: "1px solid rgba(91,168,217,0.4)", borderRadius: 6, padding: "6px 14px", color: SIGNAL, fontSize: 12, fontFamily: MONO }}>
+          {(() => {
+            const start = 4000, end = 6600, slot = (end - start) / readLines.length;
+            const idx = Math.min(readLines.length - 1, Math.max(0, Math.floor((t - start) / slot)));
+            const full = readLines[idx];
+            const inSlot = (t - start) - idx * slot;
+            const perChar = Math.min(30, (slot * 0.72) / full.length);
+            const chars = Math.min(full.length, Math.max(0, Math.floor(inSlot / perChar)));
+            return <>{full.slice(0, chars)}<span style={{ opacity: chars < full.length ? 1 : 0 }}>▍</span></>;
+          })()}
         </div>
       </div>
 
       {/* ===== Phase 3 / 6 — dashboard ===== */}
       <div style={overlay(dashOn, { pointerEvents: "none" })}>
-        <OverviewMock t={t} revealBase={6200} reportPulse={t >= 19000} />
+        <OverviewMock t={t} revealBase={6400} reportPulse={t >= 19000} />
       </div>
 
       {/* ===== Phase 4 / 5 — risk register + review ===== */}
@@ -119,13 +146,11 @@ export default function HeroDemoAnimation() {
           })}
         </div>
 
-        {/* review panel slides in from right */}
         <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 320, background: "#0c1015", borderLeft: "1px solid #23262C", padding: 18,
           transform: reviewOn ? "translateX(0)" : "translateX(105%)", transition: "transform .5s cubic-bezier(.4,0,.2,1)", boxShadow: "-20px 0 40px rgba(0,0,0,.4)" }}>
           <div style={{ ...monoLabel, marginBottom: 8 }}>Review risk · R001</div>
           <div style={{ color: "#F2F1ED", fontSize: 14, fontWeight: 700, lineHeight: 1.4 }}>No contingency in budget estimate</div>
           <div style={{ color: "#8B8F96", fontSize: 12, marginTop: 8, lineHeight: 1.5 }}>Severity: Critical. Raised from Budget_Update_Q2.xlsx. No contingency line identified against the approved figure.</div>
-
           <div style={{ ...monoLabel, marginTop: 18, marginBottom: 6 }}>Status</div>
           <div style={{ position: "relative" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", ...darkCard, padding: "9px 12px", fontSize: 13,
@@ -146,7 +171,6 @@ export default function HeroDemoAnimation() {
 
       {c && <Cursor x={c.x} y={c.y} click={c.click} />}
 
-      {/* fade to black */}
       <div style={{ position: "absolute", inset: 0, background: "#000", opacity: fade, pointerEvents: "none", transition: "opacity .1s linear" }} />
       <style>{`@keyframes dm-spin{to{transform:rotate(360deg)}}@keyframes dm-cardpulse{0%,100%{box-shadow:0 0 0 0 rgba(91,168,217,0)}50%{box-shadow:0 0 0 5px rgba(91,168,217,.18)}}`}</style>
     </AnimFrame>

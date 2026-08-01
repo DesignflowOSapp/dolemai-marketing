@@ -88,18 +88,6 @@ export default function DemoReport() {
         </div>
       </div>
 
-      {/* overall position panel */}
-      <div style={{ background: paper.panelAmber, borderLeft: "3px solid " + paper.amber, borderRadius: "0 4px 4px 0", padding: "14px 18px", marginTop: 20 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-          <span style={{ ...label, color: paper.amber }}>Overall position</span>
-          <Chip text="Amber" tone="amber" />
-        </div>
-        <div style={{ fontSize: 14, color: paper.ink2 }}>
-          The project is progressing with key coordination matters outstanding. Controlled action is
-          required before the next period.
-        </div>
-      </div>
-
       {/* executive summary */}
       <SectionTitle>Executive summary</SectionTitle>
       <p style={{ margin: 0, fontSize: 14.5, color: paper.ink2 }}>
@@ -112,7 +100,7 @@ export default function DemoReport() {
       </p>
 
       {/* programme */}
-      <SectionTitle>Programme position</SectionTitle>
+      <SectionTitle>Programme</SectionTitle>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}><Chip text="Amber" tone="amber" /></div>
       <Row k="Original completion" v="14 November 2026" />
       <Row k="Current forecast" v="25 November 2026" />
@@ -123,7 +111,7 @@ export default function DemoReport() {
       </p>
 
       {/* cost */}
-      <SectionTitle>Cost position</SectionTitle>
+      <SectionTitle>Cost</SectionTitle>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}><Chip text="Green" tone="green" /></div>
       <Row k="Approved budget" v="£2,950,000" />
       <Row k="Original contract sum" v="£2,850,000" />

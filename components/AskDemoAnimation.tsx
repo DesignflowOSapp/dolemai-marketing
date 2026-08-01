@@ -1,5 +1,5 @@
 "use client";
-import { useTimeline } from "@/components/useAnimTimeline";
+import { useTimeline, useInView } from "@/components/useAnimTimeline";
 import { AnimFrame, Cursor, SIGNAL, MONO, darkCard, overlay } from "@/components/animShared";
 import OverviewMock from "@/components/OverviewMock";
 
@@ -14,7 +14,8 @@ const answer = [
 ];
 
 export default function AskDemoAnimation() {
-  const t = useTimeline(13000);
+  const [ref, inView] = useInView(0.5);
+  const t = useTimeline(13000, { enabled: inView });
 
   const overviewOn = t < 3600;
   const askOn = t >= 3600;
@@ -28,6 +29,7 @@ export default function AskDemoAnimation() {
   const fade = t >= 11500 ? Math.min(1, (t - 11500) / 700) : 0;
 
   return (
+    <div ref={ref}>
     <AnimFrame minHeight={520}>
       {/* Overview layer */}
       <div style={overlay(overviewOn, { pointerEvents: "none" })}>
@@ -79,5 +81,6 @@ export default function AskDemoAnimation() {
       <div style={{ position: "absolute", inset: 0, background: "#000", opacity: fade, pointerEvents: "none", transition: "opacity .1s linear" }} />
       <style>{`@keyframes dm-blink{50%{opacity:0}}@keyframes dm-ping{0%{box-shadow:0 0 0 0 rgba(91,168,217,.5)}100%{box-shadow:0 0 0 10px rgba(91,168,217,0)}}@keyframes dm-cardpulse{0%,100%{box-shadow:0 0 0 0 rgba(91,168,217,0)}50%{box-shadow:0 0 0 4px rgba(91,168,217,.18)}}`}</style>
     </AnimFrame>
+    </div>
   );
 }

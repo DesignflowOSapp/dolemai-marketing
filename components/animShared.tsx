@@ -12,9 +12,9 @@ export const fadedBtn: React.CSSProperties = { background: "rgba(91,168,217,0.15
 export const monoLabel: React.CSSProperties = { fontFamily: MONO, color: "#8B8F96", textTransform: "uppercase", letterSpacing: ".06em", fontSize: 9.5 };
 
 /** Dark browser frame with traffic lights + URL bar. */
-export function AnimFrame({ children, minHeight = 460 }: { children: React.ReactNode; minHeight?: number }) {
+export function AnimFrame({ children, minHeight = 460, maxWidth = 720 }: { children: React.ReactNode; minHeight?: number; maxWidth?: number }) {
   return (
-    <div style={{ maxWidth: 720, margin: "0 auto", fontFamily: FONT, textAlign: "left" }}>
+    <div style={{ maxWidth, margin: "0 auto", fontFamily: FONT, textAlign: "left" }}>
       <div style={{ borderRadius: 16, background: "#070b0f", border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.6)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 14px", background: "#e8e3da" }}>
           <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#f2645a" }} />

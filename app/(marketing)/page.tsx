@@ -29,7 +29,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="hero">
-        <div className="container hero-grid">
+        <div className="container">
           <div>
             <div className="eyebrow">Continuous project intelligence for construction consultants</div>
             <h1>Know what changed before anyone asks.</h1>
@@ -46,10 +46,9 @@ export default function Home() {
               {`Built for project managers, Employer's Agents, Contract Administrators and architects managing live UK construction projects.`}
             </p>
           </div>
-
-          <div className="hero-visual" aria-label="Dolemai product overview animation">
-            <HeroDemoAnimation />
-          </div>
+        </div>
+        <div className="container" style={{ marginTop: 48 }} aria-label="Dolemai product overview animation">
+          <HeroDemoAnimation maxWidth={900} />
         </div>
       </section>
 
