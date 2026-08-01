@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HeroDemoAnimation from "@/components/HeroDemoAnimation";
+import AskDemoAnimation from "@/components/AskDemoAnimation";
 import { APP_URL } from "@/lib/theme";
 import { pageMeta } from "@/lib/seo";
 
@@ -330,18 +331,7 @@ export default function Home() {
             </p>
           </div>
           <Reveal>
-            <div className="ask-chat">
-              <div className="chat-user">&ldquo;What changed on Dragonfly House since my holiday?&rdquo;</div>
-              <div className="chat-bot-label">Dolemai</div>
-              <div className="chat-bot">
-                <span>Three programme revisions.</span>
-                <span>One consultant changed.</span>
-                <span>Budget reduced £82k.</span>
-                <span>Four new risks identified.</span>
-                <span>Client approved planning condition.</span>
-                <span>No critical issues currently outstanding.</span>
-              </div>
-            </div>
+            <AskDemoAnimation />
           </Reveal>
           <Reveal><div className="ask-foot">No digging through folders. No reading minutes. Just ask.</div></Reveal>
         </div>

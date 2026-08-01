@@ -56,7 +56,7 @@ export default function HeroDemoAnimation() {
   const saved = t >= 17900 && t < 18900;
 
   return (
-    <AnimFrame minHeight={480}>
+    <AnimFrame minHeight={540}>
       {/* ===== Phase 1 — folder picker ===== */}
       <div style={overlay(folderOn, { pointerEvents: "none" })}>
         <div style={{ ...monoLabel, marginBottom: 12 }}>Connect a project folder</div>

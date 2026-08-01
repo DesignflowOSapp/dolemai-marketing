@@ -28,7 +28,7 @@ export default function AskDemoAnimation() {
   const fade = t >= 11500 ? Math.min(1, (t - 11500) / 700) : 0;
 
   return (
-    <AnimFrame minHeight={472}>
+    <AnimFrame minHeight={520}>
       {/* Overview layer */}
       <div style={overlay(overviewOn, { pointerEvents: "none" })}>
         <OverviewMock t={t} revealBase={-100000} askHot={askHot} />

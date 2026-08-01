@@ -24,7 +24,7 @@ export function AnimFrame({ children, minHeight = 460 }: { children: React.React
             app.dolemai.com/projects/riverside-works
           </span>
         </div>
-        <div style={{ position: "relative", padding: 20, color: "#fff", minHeight }}>{children}</div>
+        <div style={{ position: "relative", padding: 0, color: "#fff", minHeight }}>{children}</div>
       </div>
     </div>
   );
@@ -44,5 +44,5 @@ export function Cursor({ x, y, click = false }: { x: string; y: string; click?: 
 }
 
 export function overlay(on: boolean, extra?: React.CSSProperties): React.CSSProperties {
-  return { position: "absolute", inset: 0, opacity: on ? 1 : 0, transition: "opacity .5s ease", ...extra };
+  return { position: "absolute", inset: 0, padding: 20, boxSizing: "border-box", opacity: on ? 1 : 0, transition: "opacity .5s ease", ...extra };
 }
